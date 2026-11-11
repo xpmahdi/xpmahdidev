@@ -3,17 +3,21 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Mahdi Hosseini | Junior Data Engineer & DataOps</title>
-  <meta name="description" content="Portfolio of Mahdi Hosseini - Junior Data Engineer specializing in Python, SQL, PostgreSQL, and DataOps workflows.">
+  <title>Mahdi Hosseini | Junior Data Engineer</title>
   
-  <!-- Tailwind CSS CDN -->
+  <!-- Tailwind CSS -->
   <script src="https://cdn.tailwindcss.com"></script>
-  <!-- Lucide Icons -->
-  <script src="https://unpkg.com/lucide@latest"></script>
-  <!-- Google Fonts: JetBrains Mono & Plus Jakarta Sans -->
+  <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  
+  <!-- React & Babel for in-browser JSX execution -->
+  <script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+  <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
 
   <script>
     tailwind.config = {
@@ -21,21 +25,19 @@
       theme: {
         extend: {
           fontFamily: {
-            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
-            mono: ['"JetBrains Mono"', 'monospace'],
+            sans: ['Inter', 'sans-serif'],
+            mono: ['"Fira Code"', 'monospace'],
           },
           colors: {
-            tokyo: {
-              bg: '#0f141c',
-              card: '#161d2a',
-              border: '#242f42',
-              cyan: '#7dcfff',
-              blue: '#7aa2f7',
-              purple: '#bb9af7',
-              green: '#9ece6a',
-              orange: '#ff9e64',
-              red: '#f7768e',
-              muted: '#788bb5',
+            brand: {
+              dark: '#0B0F19',
+              card: '#111827',
+              border: '#1F2937',
+              accent: '#38BDF8',
+              accentHover: '#0EA5E9',
+              green: '#10B981',
+              purple: '#818CF8',
+              text: '#9CA3AF',
             }
           }
         }
@@ -45,469 +47,527 @@
 
   <style>
     body {
-      background-color: #0c1017;
-      color: #cfd9ed;
+      background-color: #0B0F19;
+      color: #E5E7EB;
+      font-family: 'Inter', sans-serif;
     }
-    .bg-grid {
-      background-size: 32px 32px;
-      background-image: 
-        linear-gradient(to right, rgba(122, 162, 247, 0.05) 1px, transparent 1px),
-        linear-gradient(to bottom, rgba(122, 162, 247, 0.05) 1px, transparent 1px);
+    .grid-bg {
+      background-image: radial-gradient(rgba(56, 189, 248, 0.08) 1px, transparent 1px);
+      background-size: 24px 24px;
     }
-    .terminal-scroll::-webkit-scrollbar {
-      width: 4px;
+    .custom-scrollbar::-webkit-scrollbar {
+      width: 6px;
+      height: 6px;
     }
-    .terminal-scroll::-webkit-scrollbar-thumb {
-      background: #242f42;
-      border-radius: 4px;
+    .custom-scrollbar::-webkit-scrollbar-track {
+      background: #111827;
     }
-    .glass-card {
-      background: rgba(22, 29, 42, 0.7);
-      backdrop-filter: blur(12px);
-      border: 1px solid rgba(122, 162, 247, 0.12);
+    .custom-scrollbar::-webkit-scrollbar-thumb {
+      background: #1F2937;
+      border-radius: 3px;
     }
-    .glass-card:hover {
-      border-color: rgba(122, 162, 247, 0.35);
+    .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+      background: #374151;
     }
   </style>
 </head>
-<body class="bg-grid font-sans selection:bg-tokyo-blue selection:text-tokyo-bg">
+<body class="grid-bg min-h-screen custom-scrollbar">
+  <div id="root"></div>
 
-  <!-- Navigation -->
-  <nav class="fixed top-0 left-0 right-0 z-50 glass-card border-b border-tokyo-border px-6 py-4">
-    <div class="max-w-6xl mx-auto flex items-center justify-between">
-      <a href="#" class="font-mono text-lg font-bold text-tokyo-cyan flex items-center gap-2">
-        <span class="text-tokyo-purple">&lt;</span>xpmahdi<span class="text-tokyo-purple">/&gt;</span>
-      </a>
-      <div class="hidden md:flex items-center gap-8 font-mono text-sm text-tokyo-muted">
-        <a href="#about" class="hover:text-tokyo-cyan transition">_about</a>
-        <a href="#stack" class="hover:text-tokyo-cyan transition">_stack</a>
-        <a href="#projects" class="hover:text-tokyo-cyan transition">_projects</a>
-        <a href="#pipeline-lab" class="hover:text-tokyo-cyan transition">_pipeline_lab</a>
-        <a href="#contact" class="hover:text-tokyo-cyan transition">_contact</a>
-      </div>
-      <a href="https://github.com/xpmahdi" target="_blank" class="flex items-center gap-2 px-3 py-1.5 rounded-lg border border-tokyo-border text-sm font-mono text-tokyo-cyan hover:bg-tokyo-card transition">
-        <i data-lucide="github" class="w-4 h-4"></i>
-        <span>GitHub</span>
-      </a>
-    </div>
-  </nav>
+  <script type="text/babel">
+    const { useState, useEffect } = React;
 
-  <!-- Hero Section -->
-  <section class="min-h-screen pt-32 pb-16 flex items-center">
-    <div class="max-w-6xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-      
-      <div class="lg:col-span-7 space-y-6">
-        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-tokyo-card border border-tokyo-border text-xs font-mono text-tokyo-green">
-          <span class="w-2 h-2 rounded-full bg-tokyo-green animate-pulse"></span>
-          Ready for Junior Data Engineering & DataOps Roles
-        </div>
+    // Portfolio Data
+    const PORTFOLIO_DATA = {
+      profile: {
+        name: "Mahdi Hosseini",
+        title: "Junior Data Engineer",
+        tagline: "The Normal One in Data Engineering.",
+        subTagline: "Bridging solid Linux/DevOps foundations with scalable data ingestion pipelines and optimized SQL storage.",
+        status: "Open for Junior Data Engineer / DataOps Roles",
+        location: "Tehran, Iran",
+        email: "mahdihosseini1892@gmail.com",
+        github: "https://github.com/xpmahdi",
+        linkedin: "https://linkedin.com/in/mahdi-hosseini19"
+      },
+      skills: [
+        { name: "Python", category: "Core & Pipelines", desc: "ETL scripting, JSON/REST data ingestion, API workers" },
+        { name: "PostgreSQL", category: "Databases & Storage", desc: "Normalized schemas (3NF), B-Tree indexing, execution plans" },
+        { name: "SQL Server (T-SQL)", category: "Databases & Storage", desc: "Window functions, CTEs, complex aggregation" },
+        { name: "Docker & Compose", category: "DataOps & Infra", desc: "Multi-stage builds, isolated data stacks, persistent volumes" },
+        { name: "Linux Administration", category: "DataOps & Infra", desc: "Ubuntu server, systemd services, Bash automation, cron" },
+        { name: "Redis", category: "Databases & Storage", desc: "In-memory caching tier, low-latency key/value retrieval" },
+        { name: "Go (Golang)", category: "Core & Pipelines", desc: "Concurrent microservice APIs, high-throughput workers" },
+        { name: "Prometheus & Grafana", category: "DataOps & Infra", desc: "Database telemetry, host metrics, query latency monitoring" },
+        { name: "Kubernetes (k3s)", category: "DataOps & Infra", desc: "StatefulSets, PersistentVolumeClaims (PVC), self-healing" },
+        { name: "Git & GitHub Actions", category: "DataOps & Infra", desc: "Automated test suites, reproducible data pipeline delivery" }
+      ],
+      projects: [
+        {
+          id: "cinedex",
+          title: "CineDex — Media Ingestion & Storage Backend",
+          tag: "Data Ingestion & Storage",
+          badge: "Featured Pipeline",
+          desc: "Architected a containerized data backend and storage pipeline using FastAPI/Go and PostgreSQL. Modeled normalized relational schemas with structured indexing for fast retrieval, automated volume persistence, and live health probes.",
+          stack: ["Python", "PostgreSQL", "Docker Compose", "FastAPI", "Go"],
+          github: "https://github.com/xpmahdi/CineDex",
+          architecture: "API Worker (FastAPI/Go) ➔ Input Validation ➔ Batch Ingestion ➔ PostgreSQL (3NF + PVC)"
+        },
+        {
+          id: "tiered-storage",
+          title: "Distributed Tiered Storage & In-Memory Caching",
+          tag: "Distributed Systems & DataOps",
+          badge: "Resilience Lab",
+          desc: "Deployed a distributed caching tier using PostgreSQL and Redis on a lightweight Kubernetes cluster (k3s). Configured StatefulSets and PersistentVolumeClaims to guarantee transactional integrity and resilience against worker failures.",
+          stack: ["Go", "Redis", "PostgreSQL", "k3s", "StatefulSet"],
+          github: "https://github.com/xpmahdi/k8s-collaborative-todo",
+          architecture: "App Read Query ➔ Redis Cache Hit? ➔ Fallback: PostgreSQL ➔ Persistent Storage"
+        },
+        {
+          id: "telemetry",
+          title: "Database & Pipeline Observability Stack",
+          tag: "Telemetry & DataOps",
+          badge: "Observability",
+          desc: "Configured real-time metrics telemetry for database disk I/O, active client pools, and host memory usage via Prometheus and Node Exporter with custom Grafana dashboards for bottleneck detection.",
+          stack: ["Prometheus", "Grafana", "Node Exporter", "Linux"],
+          github: "https://github.com/xpmahdi",
+          architecture: "Node Exporter / DB Metrics ➔ Prometheus Scrape ➔ Alert Rules ➔ Grafana Dashboards"
+        }
+      ],
+      terminalLogs: [
+        "mahdi@host:~$ ./deploy_pipeline.sh --env=production",
+        "[INFO] Starting containerized PostgreSQL instance...",
+        "[INFO] Mounting persistent volume: /var/lib/postgresql/data",
+        "[INFO] Connecting Redis caching tier on port 6379...",
+        "[PIPELINE] Fetching batch raw payload from external data source...",
+        "[CLEANSE] Normalizing records to 3NF schema... [DONE]",
+        "[INGEST] Executing bulk upsert (1,420 records processed) in 0.38s",
+        "[OBSERVABILITY] Prometheus metrics scraping endpoint /healthz verified [200 OK]",
+        "[SUCCESS] Pipeline deployed. 0 errors, 0 dropped frames."
+      ]
+    };
 
-        <h1 class="text-4xl sm:text-6xl font-extrabold tracking-tight text-white leading-tight">
-          Mahdi Hosseini
-        </h1>
+    function App() {
+      const [activeCategory, setActiveCategory] = useState("All");
+      const [selectedSnippet, setSelectedSnippet] = useState("python");
+      const [copied, setCopied] = useState(false);
 
-        <p class="text-xl sm:text-2xl font-mono text-tokyo-cyan font-medium">
-          Junior Data Engineer
-        </p>
+      const categories = ["All", "Databases & Storage", "Core & Pipelines", "DataOps & Infra"];
 
-        <p class="text-tokyo-muted text-lg leading-relaxed max-w-xl">
-          I build resilient, reproducible data ingestion pipelines, normalized SQL schemas, and containerized storage architectures. Grounded in strong Linux and DataOps fundamentals.
-        </p>
+      const filteredSkills = activeCategory === "All"
+        ? PORTFOLIO_DATA.skills
+        : PORTFOLIO_DATA.skills.filter(s => s.category === activeCategory);
 
-        <div class="flex flex-wrap gap-4 pt-2">
-          <a href="#projects" class="px-6 py-3 rounded-xl bg-tokyo-blue text-tokyo-bg font-bold font-mono text-sm hover:opacity-90 transition flex items-center gap-2">
-            <span>Explore Projects</span>
-            <i data-lucide="arrow-right" class="w-4 h-4"></i>
-          </a>
-          <a href="https://linkedin.com/in/mahdi-hosseini19" target="_blank" class="px-6 py-3 rounded-xl glass-card font-mono text-sm text-white hover:text-tokyo-cyan transition flex items-center gap-2">
-            <i data-lucide="linkedin" class="w-4 h-4 text-tokyo-cyan"></i>
-            <span>LinkedIn Profile</span>
-          </a>
-        </div>
-      </div>
+      useEffect(() => {
+        if (window.lucide) {
+          window.lucide.createIcons();
+        }
+      }, [activeCategory, selectedSnippet]);
 
-      <!-- Live Terminal Simulation -->
-      <div class="lg:col-span-5">
-        <div class="glass-card rounded-2xl overflow-hidden shadow-2xl border border-tokyo-border font-mono text-xs">
-          <div class="bg-tokyo-card px-4 py-3 border-b border-tokyo-border flex items-center justify-between">
-            <div class="flex items-center gap-2">
-              <div class="w-3 h-3 rounded-full bg-tokyo-red/80"></div>
-              <div class="w-3 h-3 rounded-full bg-tokyo-orange/80"></div>
-              <div class="w-3 h-3 rounded-full bg-tokyo-green/80"></div>
-              <span class="text-tokyo-muted text-[11px] ml-2">data-pipeline.sh — bash</span>
-            </div>
-            <span class="text-[10px] text-tokyo-muted">status: running</span>
-          </div>
+      const copyToClipboard = (text) => {
+        navigator.clipboard.writeText(text);
+        setCopied(true);
+        setTimeout(() => setCopied(false), 2000);
+      };
 
-          <div id="terminal-content" class="p-4 h-72 overflow-y-auto terminal-scroll space-y-1.5 text-tokyo-muted bg-tokyo-bg/90">
-            <div><span class="text-tokyo-cyan">mahdi@data-host</span>:<span class="text-tokyo-purple">~</span>$ ./run_ingestion_pipeline.sh</div>
-            <div class="text-tokyo-blue">[INFO] Initializing PostgreSQL container volume... [OK]</div>
-            <div class="text-tokyo-blue">[INFO] Checking Redis cache connection on port 6379... [OK]</div>
-            <div class="text-tokyo-green">[INFO] Ingesting media catalogs from API via Python worker...</div>
-            <div class="text-tokyo-cyan">[SCHEMA] Validating 3NF tables & B-Tree indexes...</div>
-            <div class="text-tokyo-green">[MIGRATION] Alembic applied: 001_initial_schema.sql (0.04s)</div>
-            <div class="text-tokyo-purple">[METRICS] Prometheus scraping endpoints at /healthz</div>
-            <div class="text-tokyo-green">[SUCCESS] Pipeline execution complete: 1,420 records ingested.</div>
-            <div><span class="text-tokyo-cyan">mahdi@data-host</span>:<span class="text-tokyo-purple">~</span>$ <span class="animate-pulse text-tokyo-cyan">▊</span></div>
-          </div>
-        </div>
-      </div>
-
-    </div>
-  </section>
-
-  <!-- The Normal One Philosophy Section -->
-  <section id="about" class="py-20 border-t border-tokyo-border/50">
-    <div class="max-w-6xl mx-auto px-6">
-      <div class="glass-card rounded-3xl p-8 sm:p-12 border border-tokyo-border relative overflow-hidden">
-        <div class="absolute -right-16 -bottom-16 w-64 h-64 bg-tokyo-blue/5 rounded-full blur-3xl pointer-events-none"></div>
-
-        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
-          <div class="lg:col-span-8 space-y-4">
-            <span class="text-tokyo-orange font-mono text-sm tracking-wider uppercase">Philosophy & Identity</span>
-            <h2 class="text-2xl sm:text-3xl font-bold text-white">
-              The "Normal One" Approach to Data Engineering
-            </h2>
-            <p class="text-tokyo-muted leading-relaxed">
-              No bloated architectures or buzzwords. Just pragmatic, reliable engineering: clean relational schemas, deterministic SQL queries, and reproducible containers that do not fail at midnight.
-            </p>
-            <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-4 font-mono text-xs">
-              <div class="p-4 rounded-xl bg-tokyo-card/60 border border-tokyo-border/60">
-                <span class="text-tokyo-cyan font-bold block mb-1">01. Relational First</span>
-                <span class="text-tokyo-muted">Normalized design, indexing, and transactional integrity before adding complexity.</span>
-              </div>
-              <div class="p-4 rounded-xl bg-tokyo-card/60 border border-tokyo-border/60">
-                <span class="text-tokyo-green font-bold block mb-1">02. Containerized DataOps</span>
-                <span class="text-tokyo-muted">Deterministic builds, multi-stage Dockerfiles, and isolated persistent storage.</span>
-              </div>
-              <div class="p-4 rounded-xl bg-tokyo-card/60 border border-tokyo-border/60">
-                <span class="text-tokyo-purple font-bold block mb-1">03. Production Telemetry</span>
-                <span class="text-tokyo-muted">Observability through Prometheus and Grafana for query times and resource load.</span>
-              </div>
-            </div>
-          </div>
-
-          <div class="lg:col-span-4 text-center lg:text-right border-t lg:border-t-0 lg:border-l border-tokyo-border pt-6 lg:pt-0 lg:pl-8">
-            <div class="space-y-3 font-mono text-xs">
-              <div>
-                <span class="text-tokyo-muted block">Location</span>
-                <span class="text-white font-medium">Tehran, Iran</span>
-              </div>
-              <div>
-                <span class="text-tokyo-muted block">Education</span>
-                <span class="text-white font-medium">B.Sc. in Computer Science</span>
-              </div>
-              <div>
-                <span class="text-tokyo-muted block">Core Domain</span>
-                <span class="text-tokyo-cyan font-medium">Pipelines, Storage, DataOps</span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Technical Stack Grid -->
-  <section id="stack" class="py-20">
-    <div class="max-w-6xl mx-auto px-6">
-      <div class="text-center max-w-2xl mx-auto mb-16 space-y-3">
-        <h2 class="text-3xl font-extrabold text-white">Technical Arsenal</h2>
-        <p class="text-tokyo-muted font-mono text-sm">Targeted tools for building robust ingestion pipelines and scalable storage.</p>
-      </div>
-
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-        
-        <!-- Databases & Storage -->
-        <div class="glass-card rounded-2xl p-6 space-y-4">
-          <div class="flex items-center gap-3">
-            <div class="p-3 rounded-xl bg-tokyo-blue/10 text-tokyo-blue">
-              <i data-lucide="database" class="w-6 h-6"></i>
-            </div>
-            <div>
-              <h3 class="font-bold text-white text-lg">Databases & Storage</h3>
-              <span class="text-xs font-mono text-tokyo-muted">Modeling & Performance</span>
-            </div>
-          </div>
-          <ul class="space-y-2 text-sm text-tokyo-muted font-mono">
-            <li class="flex items-center gap-2"><span class="text-tokyo-blue">▹</span> PostgreSQL (Indexes, 3NF Schema)</li>
-            <li class="flex items-center gap-2"><span class="text-tokyo-blue">▹</span> Microsoft SQL Server (T-SQL, CTEs)</li>
-            <li class="flex items-center gap-2"><span class="text-tokyo-blue">▹</span> Redis (In-Memory Key/Value Caching)</li>
-            <li class="flex items-center gap-2"><span class="text-tokyo-blue">▹</span> Query Optimization & Execution Plans</li>
-            <li class="flex items-center gap-2"><span class="text-tokyo-blue">▹</span> Persistent Volume Storage (PVC)</li>
-          </ul>
-        </div>
-
-        <!-- Languages & Ingestion -->
-        <div class="glass-card rounded-2xl p-6 space-y-4">
-          <div class="flex items-center gap-3">
-            <div class="p-3 rounded-xl bg-tokyo-green/10 text-tokyo-green">
-              <i data-lucide="code-2" class="w-6 h-6"></i>
-            </div>
-            <div>
-              <h3 class="font-bold text-white text-lg">Languages & Ingestion</h3>
-              <span class="text-xs font-mono text-tokyo-muted">ETL & Automation</span>
-            </div>
-          </div>
-          <ul class="space-y-2 text-sm text-tokyo-muted font-mono">
-            <li class="flex items-center gap-2"><span class="text-tokyo-green">▹</span> Python (Data pipelines, API fetching)</li>
-            <li class="flex items-center gap-2"><span class="text-tokyo-green">▹</span> Go (Golang concurrent backend services)</li>
-            <li class="flex items-center gap-2"><span class="text-tokyo-green">▹</span> Bash Scripting (Job automation, cron)</li>
-            <li class="flex items-center gap-2"><span class="text-tokyo-green">▹</span> JSON Parsing & Data Cleansing</li>
-            <li class="flex items-center gap-2"><span class="text-tokyo-green">▹</span> RESTful Data Endpoints (FastAPI)</li>
-          </ul>
-        </div>
-
-        <!-- DataOps & Infrastructure -->
-        <div class="glass-card rounded-2xl p-6 space-y-4">
-          <div class="flex items-center gap-3">
-            <div class="p-3 rounded-xl bg-tokyo-purple/10 text-tokyo-purple">
-              <i data-lucide="layers" class="w-6 h-6"></i>
-            </div>
-            <div>
-              <h3 class="font-bold text-white text-lg">DataOps & Reliability</h3>
-              <span class="text-xs font-mono text-tokyo-muted">Runtime & Observability</span>
-            </div>
-          </div>
-          <ul class="space-y-2 text-sm text-tokyo-muted font-mono">
-            <li class="flex items-center gap-2"><span class="text-tokyo-purple">▹</span> Linux Administration (Ubuntu Server)</li>
-            <li class="flex items-center gap-2"><span class="text-tokyo-purple">▹</span> Docker & Multi-stage Builds</li>
-            <li class="flex items-center gap-2"><span class="text-tokyo-purple">▹</span> Docker Compose Orchestration</li>
-            <li class="flex items-center gap-2"><span class="text-tokyo-purple">▹</span> Prometheus & Grafana Monitoring</li>
-            <li class="flex items-center gap-2"><span class="text-tokyo-purple">▹</span> GitHub Actions Automated Testing</li>
-          </ul>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- Highlighted Projects -->
-  <section id="projects" class="py-20 border-t border-tokyo-border/50">
-    <div class="max-w-6xl mx-auto px-6 space-y-12">
-      <div class="flex flex-col md:flex-row md:items-end justify-between gap-4">
-        <div>
-          <h2 class="text-3xl font-extrabold text-white">Highlighted Projects</h2>
-          <p class="text-tokyo-muted font-mono text-sm mt-1">Real-world data architectures and containerized storage stacks.</p>
-        </div>
-        <a href="https://github.com/xpmahdi" target="_blank" class="font-mono text-sm text-tokyo-cyan hover:underline flex items-center gap-1">
-          <span>View all on GitHub</span>
-          <i data-lucide="external-link" class="w-4 h-4"></i>
-        </a>
-      </div>
-
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-        
-        <!-- Project 1: CineDex -->
-        <div class="glass-card rounded-2xl p-8 flex flex-col justify-between space-y-6 group">
-          <div class="space-y-4">
-            <div class="flex items-center justify-between">
-              <span class="text-xs font-mono px-3 py-1 rounded-md bg-tokyo-card border border-tokyo-border text-tokyo-cyan">
-                Data Pipeline & Storage
-              </span>
-              <a href="https://github.com/xpmahdi/CineDex" target="_blank" class="text-tokyo-muted group-hover:text-white transition">
-                <i data-lucide="github" class="w-5 h-5"></i>
-              </a>
-            </div>
-            <h3 class="text-2xl font-bold text-white group-hover:text-tokyo-cyan transition">CineDex</h3>
-            <p class="text-tokyo-muted text-sm leading-relaxed">
-              Containerized media catalog ingestion and storage backend. Features a normalized PostgreSQL schema (3NF) with optimized indexing, persistent volumes, and health check probes for zero-downtime operations.
-            </p>
-            <div class="flex flex-wrap gap-2 pt-2">
-              <span class="text-xs font-mono px-2.5 py-1 rounded bg-tokyo-card text-tokyo-muted border border-tokyo-border">Python</span>
-              <span class="text-xs font-mono px-2.5 py-1 rounded bg-tokyo-card text-tokyo-muted border border-tokyo-border">PostgreSQL</span>
-              <span class="text-xs font-mono px-2.5 py-1 rounded bg-tokyo-card text-tokyo-muted border border-tokyo-border">Docker Compose</span>
-              <span class="text-xs font-mono px-2.5 py-1 rounded bg-tokyo-card text-tokyo-muted border border-tokyo-border">FastAPI</span>
-            </div>
-          </div>
-          <a href="https://github.com/xpmahdi/CineDex" target="_blank" class="inline-flex items-center gap-2 text-sm font-mono text-tokyo-cyan hover:underline">
-            <span>Repository & Manifests</span>
-            <i data-lucide="arrow-up-right" class="w-4 h-4"></i>
-          </a>
-        </div>
-
-        <!-- Project 2: Distributed Tiered Storage -->
-        <div class="glass-card rounded-2xl p-8 flex flex-col justify-between space-y-6 group">
-          <div class="space-y-4">
-            <div class="flex items-center justify-between">
-              <span class="text-xs font-mono px-3 py-1 rounded-md bg-tokyo-card border border-tokyo-border text-tokyo-purple">
-                In-Memory & Persistent Caching
-              </span>
-              <a href="https://github.com/xpmahdi/k8s-collaborative-todo" target="_blank" class="text-tokyo-muted group-hover:text-white transition">
-                <i data-lucide="github" class="w-5 h-5"></i>
-              </a>
-            </div>
-            <h3 class="text-2xl font-bold text-white group-hover:text-tokyo-purple transition">Distributed Data & Cache Tier</h3>
-            <p class="text-tokyo-muted text-sm leading-relaxed">
-              Multi-tiered storage setup leveraging an in-memory Redis cache alongside a persistent PostgreSQL cluster. Packaged with Kubernetes manifests (StatefulSets & PVCs) to validate zero data loss across node failures.
-            </p>
-            <div class="flex flex-wrap gap-2 pt-2">
-              <span class="text-xs font-mono px-2.5 py-1 rounded bg-tokyo-card text-tokyo-muted border border-tokyo-border">Go</span>
-              <span class="text-xs font-mono px-2.5 py-1 rounded bg-tokyo-card text-tokyo-muted border border-tokyo-border">Redis</span>
-              <span class="text-xs font-mono px-2.5 py-1 rounded bg-tokyo-card text-tokyo-muted border border-tokyo-border">PostgreSQL</span>
-              <span class="text-xs font-mono px-2.5 py-1 rounded bg-tokyo-card text-tokyo-muted border border-tokyo-border">k3s</span>
-            </div>
-          </div>
-          <a href="https://github.com/xpmahdi/k8s-collaborative-todo" target="_blank" class="inline-flex items-center gap-2 text-sm font-mono text-tokyo-purple hover:underline">
-            <span>Repository & Architecture</span>
-            <i data-lucide="arrow-up-right" class="w-4 h-4"></i>
-          </a>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- Interactive Pipeline Sandbox -->
-  <section id="pipeline-lab" class="py-20">
-    <div class="max-w-6xl mx-auto px-6">
-      <div class="glass-card rounded-3xl p-8 border border-tokyo-border space-y-6">
-        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-tokyo-border pb-6">
-          <div>
-            <h3 class="text-xl font-bold text-white">Pipeline Lab: Code Showcase</h3>
-            <p class="text-xs font-mono text-tokyo-muted mt-1">Sample scripts demonstrating data ingestion logic and schema indexing.</p>
-          </div>
-          <div class="flex items-center gap-2 font-mono text-xs">
-            <button id="btn-python" onclick="switchSnippet('python')" class="px-3 py-1.5 rounded-lg bg-tokyo-cyan text-tokyo-bg font-bold">
-              Python Ingest
-            </button>
-            <button id="btn-sql" onclick="switchSnippet('sql')" class="px-3 py-1.5 rounded-lg bg-tokyo-card text-tokyo-muted hover:text-white border border-tokyo-border">
-              PostgreSQL Schema
-            </button>
-          </div>
-        </div>
-
-        <div class="relative font-mono text-xs bg-tokyo-bg/95 p-6 rounded-2xl border border-tokyo-border overflow-x-auto">
-          <pre id="code-snippet" class="text-tokyo-cyan"><code># Python Data Ingestion Worker
+      const pythonCode = `# Ingestion Worker with Batch Upsert
 import httpx
 import psycopg2
 from psycopg2.extras import execute_batch
 
-def ingest_media_records(api_endpoint: str, db_conn):
-    response = httpx.get(api_endpoint, timeout=10.0)
-    records = response.json().get("items", [])
+def ingest_records(api_url: str, db_connection):
+    response = httpx.get(api_url, timeout=10.0)
+    records = response.json().get("data", [])
     
-    clean_payload = [
-        (item["id"], item["title"], item.get("release_year"), item.get("rating"))
+    clean_data = [
+        (item["id"], item["title"], item.get("score"), item.get("released_at"))
         for item in records if item.get("title")
     ]
     
-    query = """
-        INSERT INTO media_catalog (external_id, title, release_year, rating)
+    upsert_sql = """
+        INSERT INTO media_catalog (external_id, title, score, released_at)
         VALUES (%s, %s, %s, %s)
         ON CONFLICT (external_id) DO UPDATE 
-        SET rating = EXCLUDED.rating, updated_at = NOW();
+        SET score = EXCLUDED.score, updated_at = NOW();
     """
-    with db_conn.cursor() as cur:
-        execute_batch(cur, query, clean_payload, page_size=200)
-    db_conn.commit()
-    return len(clean_payload)</code></pre>
-        </div>
-      </div>
-    </div>
-  </section>
+    with db_connection.cursor() as cur:
+        execute_batch(cur, upsert_sql, clean_data, page_size=250)
+    db_connection.commit()
+    return len(clean_data)`;
 
-  <!-- GitHub Streak Banner -->
-  <section class="py-12 border-t border-tokyo-border/50">
-    <div class="max-w-4xl mx-auto px-6 text-center space-y-6">
-      <h3 class="text-lg font-mono text-tokyo-muted">_activity_telemetry</h3>
-      <div class="flex justify-center">
-        <img src="https://streak-stats.demolab.com?user=xpmahdi&theme=tokyonight&hide_border=true" alt="Mahdi Hosseini GitHub Streak" class="max-w-full rounded-2xl shadow-lg border border-tokyo-border">
-      </div>
-    </div>
-  </section>
-
-  <!-- Footer / Contact -->
-  <footer id="contact" class="py-16 border-t border-tokyo-border bg-tokyo-card/40">
-    <div class="max-w-6xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-8">
-      <div class="space-y-2 text-center md:text-left">
-        <div class="font-mono text-lg font-bold text-white">Mahdi Hosseini</div>
-        <p class="text-xs font-mono text-tokyo-muted">
-          "The Normal One in Data Engineering." — Focused on clean data & solid foundations.
-        </p>
-      </div>
-
-      <div class="flex items-center gap-4 font-mono text-xs">
-        <a href="mailto:mahdihosseini1892@gmail.com" class="p-3 rounded-xl glass-card text-white hover:text-tokyo-cyan transition flex items-center gap-2">
-          <i data-lucide="mail" class="w-4 h-4 text-tokyo-cyan"></i>
-          <span>Email Me</span>
-        </a>
-        <a href="https://linkedin.com/in/mahdi-hosseini19" target="_blank" class="p-3 rounded-xl glass-card text-white hover:text-tokyo-cyan transition flex items-center gap-2">
-          <i data-lucide="linkedin" class="w-4 h-4 text-tokyo-cyan"></i>
-          <span>LinkedIn</span>
-        </a>
-        <a href="https://github.com/xpmahdi" target="_blank" class="p-3 rounded-xl glass-card text-white hover:text-tokyo-cyan transition flex items-center gap-2">
-          <i data-lucide="github" class="w-4 h-4 text-tokyo-cyan"></i>
-          <span>GitHub</span>
-        </a>
-      </div>
-    </div>
-  </footer>
-
-  <script>
-    // Initialize Lucide Icons
-    lucide.createIcons();
-
-    // Code Snippet Switcher
-    const pythonSnippet = `# Python Data Ingestion Worker
-import httpx
-import psycopg2
-from psycopg2.extras import execute_batch
-
-def ingest_media_records(api_endpoint: str, db_conn):
-    response = httpx.get(api_endpoint, timeout=10.0)
-    records = response.json().get("items", [])
-    
-    clean_payload = [
-        (item["id"], item["title"], item.get("release_year"), item.get("rating"))
-        for item in records if item.get("title")
-    ]
-    
-    query = """
-        INSERT INTO media_catalog (external_id, title, release_year, rating)
-        VALUES (%s, %s, %s, %s)
-        ON CONFLICT (external_id) DO UPDATE 
-        SET rating = EXCLUDED.rating, updated_at = NOW();
-    """
-    with db_conn.cursor() as cur:
-        execute_batch(cur, query, clean_payload, page_size=200)
-    db_conn.commit()
-    return len(clean_payload)`;
-
-    const sqlSnippet = `-- PostgreSQL Normalized Schema & Indexing
+      const sqlCode = `-- Normalized Relational Schema & Performance Indexes
 CREATE TABLE IF NOT EXISTS media_catalog (
     id SERIAL PRIMARY KEY,
     external_id VARCHAR(64) UNIQUE NOT NULL,
     title VARCHAR(255) NOT NULL,
-    release_year SMALLINT CHECK (release_year >= 1888),
-    rating NUMERIC(3, 1),
+    score NUMERIC(3, 1),
+    released_at DATE,
     created_at TIMESTAMP WITH TIME ZONE DEFAULT NOW(),
     updated_at TIMESTAMP WITH TIME ZONE DEFAULT NOW()
 );
 
--- Fast lookup composite indexes
-CREATE INDEX idx_media_rating ON media_catalog (rating DESC);
-CREATE INDEX idx_media_release_year ON media_catalog (release_year);
+-- B-Tree Performance Indexing
+CREATE INDEX idx_media_score ON media_catalog (score DESC);
+CREATE INDEX idx_media_released ON media_catalog (released_at);
 
--- In-Memory cache eviction tracking
-COMMENT ON TABLE media_catalog IS 'Source of truth synchronized with Redis cache keys.';`;
+-- Cache Invalidation Tracking
+COMMENT ON TABLE media_catalog IS 'Synchronized via Redis in-memory cache key TTL.';`;
 
-    function switchSnippet(type) {
-      const btnPy = document.getElementById('btn-python');
-      const btnSql = document.getElementById('btn-sql');
-      const codeEl = document.querySelector('#code-snippet code');
+      return (
+        <div className="min-h-screen flex flex-col justify-between">
+          
+          {/* Navigation Bar */}
+          <header className="sticky top-0 z-50 backdrop-blur-md bg-brand-dark/80 border-b border-brand-border">
+            <div className="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
+              <a href="#" className="flex items-center gap-2 font-mono text-sm font-semibold text-white tracking-wide">
+                <span className="text-brand-accent">&gt;</span>
+                <span>xpmahdi</span>
+                <span className="text-brand-text font-normal">/data-eng</span>
+              </a>
 
-      if (type === 'python') {
-        codeEl.textContent = pythonSnippet;
-        btnPy.className = "px-3 py-1.5 rounded-lg bg-tokyo-cyan text-tokyo-bg font-bold";
-        btnSql.className = "px-3 py-1.5 rounded-lg bg-tokyo-card text-tokyo-muted hover:text-white border border-tokyo-border";
-      } else {
-        codeEl.textContent = sqlSnippet;
-        btnSql.className = "px-3 py-1.5 rounded-lg bg-tokyo-cyan text-tokyo-bg font-bold";
-        btnPy.className = "px-3 py-1.5 rounded-lg bg-tokyo-card text-tokyo-muted hover:text-white border border-tokyo-border";
-      }
+              <nav className="hidden md:flex items-center gap-6 font-mono text-xs text-brand-text">
+                <a href="#about" className="hover:text-brand-accent transition">_philosophy</a>
+                <a href="#skills" className="hover:text-brand-accent transition">_stack</a>
+                <a href="#projects" className="hover:text-brand-accent transition">_projects</a>
+                <a href="#code-lab" className="hover:text-brand-accent transition">_pipeline_lab</a>
+                <a href="#contact" className="hover:text-brand-accent transition">_contact</a>
+              </nav>
+
+              <div className="flex items-center gap-3">
+                <a 
+                  href={PORTFOLIO_DATA.profile.github} 
+                  target="_blank" 
+                  className="px-3 py-1.5 rounded-lg border border-brand-border bg-brand-card hover:border-brand-accent text-xs font-mono text-white flex items-center gap-2 transition"
+                >
+                  <i data-lucide="github" className="w-3.5 h-3.5 text-brand-accent"></i>
+                  <span>GitHub</span>
+                </a>
+              </div>
+            </div>
+          </header>
+
+          {/* Hero Section */}
+          <main className="max-w-6xl mx-auto px-6 py-12 md:py-20 w-full space-y-24">
+            
+            <section className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+              <div className="lg:col-span-7 space-y-6">
+                
+                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-brand-green/30 bg-brand-green/10 text-brand-green text-xs font-mono">
+                  <span className="w-2 h-2 rounded-full bg-brand-green animate-pulse"></span>
+                  {PORTFOLIO_DATA.profile.status}
+                </div>
+
+                <div className="space-y-2">
+                  <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-white tracking-tight leading-tight">
+                    {PORTFOLIO_DATA.profile.name}
+                  </h1>
+                  <p className="text-xl sm:text-2xl font-mono text-brand-accent font-medium">
+                    {PORTFOLIO_DATA.profile.title}
+                  </p>
+                </div>
+
+                <p className="text-brand-text text-base sm:text-lg leading-relaxed max-w-xl font-normal">
+                  {PORTFOLIO_DATA.profile.subTagline}
+                </p>
+
+                <div className="flex flex-wrap gap-4 pt-2">
+                  <a 
+                    href="#projects" 
+                    className="px-6 py-3 rounded-xl bg-brand-accent hover:bg-brand-accentHover text-brand-dark font-bold font-mono text-xs uppercase tracking-wider flex items-center gap-2 shadow-lg shadow-brand-accent/10 transition"
+                  >
+                    <span>Inspect Pipelines</span>
+                    <i data-lucide="arrow-down" className="w-4 h-4"></i>
+                  </a>
+
+                  <a 
+                    href={PORTFOLIO_DATA.profile.linkedin} 
+                    target="_blank" 
+                    className="px-6 py-3 rounded-xl border border-brand-border bg-brand-card hover:border-brand-accent text-white font-mono text-xs flex items-center gap-2 transition"
+                  >
+                    <i data-lucide="linkedin" className="w-4 h-4 text-brand-accent"></i>
+                    <span>LinkedIn</span>
+                  </a>
+
+                  <a 
+                    href={`mailto:${PORTFOLIO_DATA.profile.email}`} 
+                    className="px-6 py-3 rounded-xl border border-brand-border bg-brand-card hover:border-brand-accent text-white font-mono text-xs flex items-center gap-2 transition"
+                  >
+                    <i data-lucide="mail" className="w-4 h-4 text-brand-accent"></i>
+                    <span>Contact</span>
+                  </a>
+                </div>
+
+                <div className="pt-4 flex items-center gap-6 font-mono text-xs text-brand-text border-t border-brand-border/60">
+                  <div className="flex items-center gap-2">
+                    <i data-lucide="map-pin" className="w-3.5 h-3.5 text-brand-accent"></i>
+                    <span>{PORTFOLIO_DATA.profile.location}</span>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <i data-lucide="terminal" className="w-3.5 h-3.5 text-brand-green"></i>
+                    <span>DataOps First</span>
+                  </div>
+                </div>
+
+              </div>
+
+              {/* Terminal Card */}
+              <div className="lg:col-span-5">
+                <div className="rounded-2xl border border-brand-border bg-brand-card shadow-2xl overflow-hidden font-mono text-xs">
+                  <div className="bg-gray-900/90 px-4 py-3 border-b border-brand-border flex items-center justify-between">
+                    <div className="flex items-center gap-2">
+                      <div className="w-3 h-3 rounded-full bg-red-500/80"></div>
+                      <div className="w-3 h-3 rounded-full bg-yellow-500/80"></div>
+                      <div className="w-3 h-3 rounded-full bg-green-500/80"></div>
+                      <span className="text-gray-400 text-[11px] ml-2">pipeline-worker — sh</span>
+                    </div>
+                    <span className="text-[10px] text-brand-green bg-brand-green/10 px-2 py-0.5 rounded border border-brand-green/30">live</span>
+                  </div>
+
+                  <div className="p-4 h-80 overflow-y-auto space-y-2 bg-brand-dark/95 text-gray-300 custom-scrollbar">
+                    {PORTFOLIO_DATA.terminalLogs.map((log, index) => (
+                      <div key={index} className="leading-relaxed">
+                        {log.startsWith("mahdi@") ? (
+                          <span className="text-brand-accent font-semibold">{log}</span>
+                        ) : log.includes("[INFO]") ? (
+                          <span className="text-blue-400">{log}</span>
+                        ) : log.includes("[PIPELINE]") || log.includes("[INGEST]") ? (
+                          <span className="text-purple-400">{log}</span>
+                        ) : log.includes("[SUCCESS]") ? (
+                          <span className="text-brand-green font-semibold">{log}</span>
+                        ) : (
+                          <span className="text-gray-400">{log}</span>
+                        )}
+                      </div>
+                    ))}
+                    <div className="pt-2 flex items-center gap-2 text-brand-accent">
+                      <span>mahdi@host:~$</span>
+                      <span className="w-2 h-4 bg-brand-accent animate-pulse inline-block"></span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </section>
+
+            {/* Philosophy Section */}
+            <section id="about" className="rounded-3xl border border-brand-border bg-brand-card/50 p-8 sm:p-12 relative overflow-hidden">
+              <div className="max-w-3xl space-y-4">
+                <span className="text-brand-accent font-mono text-xs uppercase tracking-widest block font-semibold">
+                  Engineering Philosophy
+                </span>
+                <h2 className="text-2xl sm:text-3xl font-extrabold text-white">
+                  "{PORTFOLIO_DATA.profile.tagline}"
+                </h2>
+                <p className="text-brand-text leading-relaxed">
+                  Inspired by pragmatic simplicity: avoiding over-engineered distributed frameworks when a clean, normalized relational design in PostgreSQL with indexed queries and isolated Docker containers solves the problem faster, cheaper, and with zero midnight outages.
+                </p>
+                <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-4 font-mono text-xs">
+                  <div className="p-4 rounded-xl border border-brand-border bg-brand-dark/60">
+                    <span className="text-brand-accent font-bold block mb-1">01. Relational Rigor</span>
+                    <span className="text-brand-text">3NF normalization, foreign key constraints, composite indexing.</span>
+                  </div>
+                  <div className="p-4 rounded-xl border border-brand-border bg-brand-dark/60">
+                    <span className="text-brand-green font-bold block mb-1">02. Containerized DataOps</span>
+                    <span className="text-brand-text">Reproducible multi-stage Docker builds, persistent volume resilience.</span>
+                  </div>
+                  <div className="p-4 rounded-xl border border-brand-border bg-brand-dark/60">
+                    <span className="text-brand-purple font-bold block mb-1">03. Measured Performance</span>
+                    <span className="text-brand-text">Query profiling via execution plans and Prometheus metrics.</span>
+                  </div>
+                </div>
+              </div>
+            </section>
+
+            {/* Skills & Tech Stack */}
+            <section id="skills" className="space-y-8">
+              <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4">
+                <div>
+                  <h2 className="text-3xl font-extrabold text-white">Technical Toolkit</h2>
+                  <p className="text-brand-text font-mono text-xs mt-1">Core proficiencies across relational modeling, pipelines, and DataOps.</p>
+                </div>
+
+                {/* Filter Tabs */}
+                <div className="flex flex-wrap gap-2 font-mono text-xs">
+                  {categories.map((cat) => (
+                    <button
+                      key={cat}
+                      onClick={() => setActiveCategory(cat)}
+                      className={`px-3 py-1.5 rounded-lg border transition ${
+                        activeCategory === cat
+                          ? "bg-brand-accent text-brand-dark font-bold border-brand-accent"
+                          : "bg-brand-card text-brand-text border-brand-border hover:border-brand-text"
+                      }`}
+                    >
+                      {cat}
+                    </button>
+                  ))}
+                </div>
+              </div>
+
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                {filteredSkills.map((skill, idx) => (
+                  <div 
+                    key={idx} 
+                    className="p-5 rounded-2xl border border-brand-border bg-brand-card/40 hover:border-brand-accent/50 transition space-y-2 group"
+                  >
+                    <div className="flex items-center justify-between">
+                      <span className="font-bold text-white group-hover:text-brand-accent transition">{skill.name}</span>
+                      <span className="text-[10px] font-mono px-2 py-0.5 rounded bg-brand-dark border border-brand-border text-brand-text">
+                        {skill.category}
+                      </span>
+                    </div>
+                    <p className="text-xs text-brand-text font-mono leading-relaxed">
+                      {skill.desc}
+                    </p>
+                  </div>
+                ))}
+              </div>
+            </section>
+
+            {/* Featured Projects */}
+            <section id="projects" className="space-y-8">
+              <div>
+                <h2 className="text-3xl font-extrabold text-white">Featured Projects</h2>
+                <p className="text-brand-text font-mono text-xs mt-1">Demonstrated implementations in data storage, caching tiers, and observability.</p>
+              </div>
+
+              <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+                {PORTFOLIO_DATA.projects.map((proj) => (
+                  <div 
+                    key={proj.id} 
+                    className="rounded-2xl border border-brand-border bg-brand-card p-6 flex flex-col justify-between space-y-6 hover:border-brand-accent/40 transition group"
+                  >
+                    <div className="space-y-4">
+                      <div className="flex items-center justify-between font-mono text-xs">
+                        <span className="px-2.5 py-1 rounded-md bg-brand-dark border border-brand-border text-brand-accent text-[11px]">
+                          {proj.badge}
+                        </span>
+                        <a href={proj.github} target="_blank" className="text-brand-text group-hover:text-white transition">
+                          <i data-lucide="github" className="w-4 h-4"></i>
+                        </a>
+                      </div>
+
+                      <h3 className="text-lg font-bold text-white group-hover:text-brand-accent transition">
+                        {proj.title}
+                      </h3>
+
+                      <p className="text-xs text-brand-text leading-relaxed">
+                        {proj.desc}
+                      </p>
+
+                      <div className="p-3 rounded-xl bg-brand-dark/80 border border-brand-border/60 font-mono text-[11px] text-gray-300">
+                        <span className="text-brand-accent block mb-1 text-[10px] uppercase tracking-wider font-semibold">Data Flow:</span>
+                        {proj.architecture}
+                      </div>
+
+                      <div className="flex flex-wrap gap-1.5 pt-1">
+                        {proj.stack.map((tech, i) => (
+                          <span key={i} className="text-[10px] font-mono px-2 py-0.5 rounded bg-brand-dark border border-brand-border text-brand-text">
+                            {tech}
+                          </span>
+                        ))}
+                      </div>
+                    </div>
+
+                    <a 
+                      href={proj.github} 
+                      target="_blank" 
+                      className="inline-flex items-center gap-1.5 text-xs font-mono text-brand-accent hover:underline pt-2 border-t border-brand-border/50"
+                    >
+                      <span>Explore Repository & Configs</span>
+                      <i data-lucide="arrow-up-right" className="w-3.5 h-3.5"></i>
+                    </a>
+                  </div>
+                ))}
+              </div>
+            </section>
+
+            {/* Pipeline Lab (Interactive Code Switcher) */}
+            <section id="code-lab" className="rounded-3xl border border-brand-border bg-brand-card p-6 sm:p-8 space-y-6">
+              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-brand-border pb-6">
+                <div>
+                  <h3 className="text-xl font-bold text-white">Pipeline Lab: Production Code Sample</h3>
+                  <p className="text-xs font-mono text-brand-text mt-1">Comparing batch upsert ingestion logic with normalized SQL indexing schemas.</p>
+                </div>
+
+                <div className="flex items-center gap-2 font-mono text-xs">
+                  <button
+                    onClick={() => setSelectedSnippet("python")}
+                    className={`px-3 py-1.5 rounded-lg border transition ${
+                      selectedSnippet === "python"
+                        ? "bg-brand-accent text-brand-dark font-bold border-brand-accent"
+                        : "bg-brand-dark text-brand-text border-brand-border hover:border-brand-text"
+                    }`}
+                  >
+                    Python Ingest Worker
+                  </button>
+                  <button
+                    onClick={() => setSelectedSnippet("sql")}
+                    className={`px-3 py-1.5 rounded-lg border transition ${
+                      selectedSnippet === "sql"
+                        ? "bg-brand-accent text-brand-dark font-bold border-brand-accent"
+                        : "bg-brand-dark text-brand-text border-brand-border hover:border-brand-text"
+                    }`}
+                  >
+                    PostgreSQL 3NF Schema
+                  </button>
+                </div>
+              </div>
+
+              <div className="relative rounded-2xl bg-brand-dark border border-brand-border p-5 overflow-x-auto font-mono text-xs custom-scrollbar">
+                <button
+                  onClick={() => copyToClipboard(selectedSnippet === "python" ? pythonCode : sqlCode)}
+                  className="absolute top-4 right-4 px-2.5 py-1 rounded bg-brand-card hover:bg-brand-border border border-brand-border text-brand-text text-[11px] flex items-center gap-1.5 transition"
+                >
+                  <i data-lucide={copied ? "check" : "copy"} className="w-3.5 h-3.5 text-brand-accent"></i>
+                  <span>{copied ? "Copied" : "Copy"}</span>
+                </button>
+                <pre className="text-gray-300">
+                  <code>{selectedSnippet === "python" ? pythonCode : sqlCode}</code>
+                </pre>
+              </div>
+            </section>
+
+            {/* Activity Streak Widget */}
+            <section className="text-center space-y-4">
+              <h3 className="text-xs font-mono uppercase tracking-widest text-brand-text">
+                Continuous Ingestion & Activity
+              </h3>
+              <div className="flex justify-center">
+                <img 
+                  src="https://streak-stats.demolab.com?user=xpmahdi&theme=tokyonight&hide_border=true" 
+                  alt="GitHub Activity Streak" 
+                  className="max-w-full rounded-2xl border border-brand-border shadow-xl"
+                />
+              </div>
+            </section>
+
+          </main>
+
+          {/* Footer */}
+          <footer id="contact" className="border-t border-brand-border bg-brand-dark py-12">
+            <div className="max-w-6xl mx-auto px-6 flex flex-col sm:flex-row items-center justify-between gap-6 font-mono text-xs">
+              <div className="space-y-1 text-center sm:text-left">
+                <span className="text-white font-bold tracking-wide">Mahdi Hosseini</span>
+                <p className="text-brand-text">
+                  "The Normal One in Data Engineering." — Tehran, Iran.
+                </p>
+              </div>
+
+              <div className="flex items-center gap-4 text-brand-text">
+                <a href={PORTFOLIO_DATA.profile.github} target="_blank" className="hover:text-brand-accent transition">GitHub</a>
+                <span>•</span>
+                <a href={PORTFOLIO_DATA.profile.linkedin} target="_blank" className="hover:text-brand-accent transition">LinkedIn</a>
+                <span>•</span>
+                <a href={`mailto:${PORTFOLIO_DATA.profile.email}`} className="hover:text-brand-accent transition">Email</a>
+              </div>
+            </div>
+          </footer>
+
+        </div>
+      );
     }
+
+    ReactDOM.createRoot(document.getElementById('root')).render(<App />);
   </script>
 </body>
 </html>
