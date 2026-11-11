@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mahdi Hosseini | Junior Data Engineer & DataOps</title>
+  <meta name="description" content="Portfolio of Mahdi Hosseini - Junior Data Engineer specializing in Python, SQL, PostgreSQL, and DataOps workflows.">
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <!-- Google Fonts: JetBrains Mono & Plus Jakarta Sans -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+            mono: ['"JetBrains Mono"', 'monospace'],
+          },
+          colors: {
+            tokyo: {
+              bg: '#0f141c',
+              card: '#161d2a',
+              border: '#242f42',
+              cyan: '#7dcfff',
+              blue: '#7aa2f7',
+              purple: '#bb9af7',
+              green: '#9ece6a',
+              orange: '#ff9e64',
+              red: '#f7768e',
+              muted: '#788bb5',
+            }
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    body {
+      background-color: #0c1017;
+      color: #cfd9ed;
+    }
+    .bg-grid {
+      background-size: 32px 32px;
+      background-image: 
+        linear-gradient(to right, rgba(122, 162, 247, 0.05) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(122, 162, 247, 0.05) 1px, transparent 1px);
+    }
+    .terminal-scroll::-webkit-scrollbar {
+      width: 4px;
+    }
+    .terminal-scroll::-webkit-scrollbar-thumb {
+      background: #242f42;
+      border-radius: 4px;
+    }
+    .glass-card {
+      background: rgba(22, 29, 42, 0.7);
+      backdrop-filter: blur(12px);
+      border: 1px solid rgba(122, 162, 247, 0.12);
+    }
+    .glass-card:hover {
+      border-color: rgba(122, 162, 247, 0.35);
+    }
+  </style>
+</head>
+<body class="bg-grid font-sans selection:bg-tokyo-blue selection:text-tokyo-bg">
+
+  <!-- Navigation -->
+  <nav class="fixed top-0 left-0 right-0 z-50 glass-card border-b border-tokyo-border px-6 py-4">
+    <div class="max-w-6xl mx-auto flex items-center justify-between">
+      <a href="#" class="font-mono text-lg font-bold text-tokyo-cyan flex items-center gap-2">
+        <span class="text-tokyo-purple">&lt;</span>xpmahdi<span class="text-tokyo-purple">/&gt;</span>
+      </a>
+      <div class="hidden md:flex items-center gap-8 font-mono text-sm text-tokyo-muted">
+        <a href="#about" class="hover:text-tokyo-cyan transition">_about</a>
+        <a href="#stack" class="hover:text-tokyo-cyan transition">_stack</a>
+        <a href="#projects" class="hover:text-tokyo-cyan transition">_projects</a>
+        <a href="#pipeline-lab" class="hover:text-tokyo-cyan transition">_pipeline_lab</a>
+        <a href="#contact" class="hover:text-tokyo-cyan transition">_contact</a>
+      </div>
+      <a href="https://github.com/xpmahdi" target="_blank" class="flex items-center gap-2 px-3 py-1.5 rounded-lg border border-tokyo-border text-sm font-mono text-tokyo-cyan hover:bg-tokyo-card transition">
+        <i data-lucide="github" class="w-4 h-4"></i>
+        <span>GitHub</span>
+      </a>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="min-h-screen pt-32 pb-16 flex items-center">
+    <div class="max-w-6xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+      
+      <div class="lg:col-span-7 space-y-6">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-tokyo-card border border-tokyo-border text-xs font-mono text-tokyo-green">
+          <span class="w-2 h-2 rounded-full bg-tokyo-green animate-pulse"></span>
+          Ready for Junior Data Engineering & DataOps Roles
+        </div>
+
+        <h1 class="text-4xl sm:text-6xl font-extrabold tracking-tight text-white leading-tight">
+          Mahdi Hosseini
+        </h1>
+
+        <p class="text-xl sm:text-2xl font-mono text-tokyo-cyan font-medium">
+          Junior Data Engineer
+        </p>
+
+        <p class="text-tokyo-muted text-lg leading-relaxed max-w-xl">
+          I build resilient, reproducible data ingestion pipelines, normalized SQL schemas, and containerized storage architectures. Grounded in strong Linux and DataOps fundamentals.
+        </p>
+
+        <div class="flex flex-wrap gap-4 pt-2">
+          <a href="#projects" class="px-6 py-3 rounded-xl bg-tokyo-blue text-tokyo-bg font-bold font-mono text-sm hover:opacity-90 transition flex items-center gap-2">
+            <span>Explore Projects</span>
+            <i data-lucide="arrow-right" class="w-4 h-4"></i>
+          </a>
+          <a href="https://linkedin.com/in/mahdi-hosseini19" target="_blank" class="px-6 py-3 rounded-xl glass-card font-mono text-sm text-white hover:text-tokyo-cyan transition flex items-center gap-2">
+            <i data-lucide="linkedin" class="w-4 h-4 text-tokyo-cyan"></i>
+            <span>LinkedIn Profile</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- Live Terminal Simulation -->
+      <div class="lg:col-span-5">
+        <div class="glass-card rounded-2xl overflow-hidden shadow-2xl border border-tokyo-border font-mono text-xs">
+          <div class="bg-tokyo-card px-4 py-3 border-b border-tokyo-border flex items-center justify-between">
+            <div class="flex items-center gap-2">
+              <div class="w-3 h-3 rounded-full bg-tokyo-red/80"></div>
+              <div class="w-3 h-3 rounded-full bg-tokyo-orange/80"></div>
+              <div class="w-3 h-3 rounded-full bg-tokyo-green/80"></div>
+              <span class="text-tokyo-muted text-[11px] ml-2">data-pipeline.sh — bash</span>
+            </div>
+            <span class="text-[10px] text-tokyo-muted">status: running</span>
+          </div>
+
+          <div id="terminal-content" class="p-4 h-72 overflow-y-auto terminal-scroll space-y-1.5 text-tokyo-muted bg-tokyo-bg/90">
+            <div><span class="text-tokyo-cyan">mahdi@data-host</span>:<span class="text-tokyo-purple">~</span>$ ./run_ingestion_pipeline.sh</div>
+            <div class="text-tokyo-blue">[INFO] Initializing PostgreSQL container volume... [OK]</div>
+            <div class="text-tokyo-blue">[INFO] Checking Redis cache connection on port 6379... [OK]</div>
+            <div class="text-tokyo-green">[INFO] Ingesting media catalogs from API via Python worker...</div>
+            <div class="text-tokyo-cyan">[SCHEMA] Validating 3NF tables & B-Tree indexes...</div>
+            <div class="text-tokyo-green">[MIGRATION] Alembic applied: 001_initial_schema.sql (0.04s)</div>
+            <div class="text-tokyo-purple">[METRICS] Prometheus scraping endpoints at /healthz</div>
+            <div class="text-tokyo-green">[SUCCESS] Pipeline execution complete: 1,420 records ingested.</div>
+            <div><span class="text-tokyo-cyan">mahdi@data-host</span>:<span class="text-tokyo-purple">~</span>$ <span class="animate-pulse text-tokyo-cyan">▊</span></div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- The Normal One Philosophy Section -->
+  <section id="about" class="py-20 border-t border-tokyo-border/50">
+    <div class="max-w-6xl mx-auto px-6">
+      <div class="glass-card rounded-3xl p-8 sm:p-12 border border-tokyo-border relative overflow-hidden">
+        <div class="absolute -right-16 -bottom-16 w-64 h-64 bg-tokyo-blue/5 rounded-full blur-3xl pointer-events-none"></div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+          <div class="lg:col-span-8 space-y-4">
+            <span class="text-tokyo-orange font-mono text-sm tracking-wider uppercase">Philosophy & Identity</span>
+            <h2 class="text-2xl sm:text-3xl font-bold text-white">
+              The "Normal One" Approach to Data Engineering
+            </h2>
+            <p class="text-tokyo-muted leading-relaxed">
+              No bloated architectures or buzzwords. Just pragmatic, reliable engineering: clean relational schemas, deterministic SQL queries, and reproducible containers that do not fail at midnight.
+            </p>
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-4 font-mono text-xs">
+              <div class="p-4 rounded-xl bg-tokyo-card/60 border border-tokyo-border/60">
+                <span class="text-tokyo-cyan font-bold block mb-1">01. Relational First</span>
+                <span class="text-tokyo-muted">Normalized design, indexing, and transactional integrity before adding complexity.</span>
+              </div>
+              <div class="p-4 rounded-xl bg-tokyo-card/60 border border-tokyo-border/60">
+                <span class="text-tokyo-green font-bold block mb-1">02. Containerized DataOps</span>
+                <span class="text-tokyo-muted">Deterministic builds, multi-stage Dockerfiles, and isolated persistent storage.</span>
+              </div>
+              <div class="p-4 rounded-xl bg-tokyo-card/60 border border-tokyo-border/60">
+                <span class="text-tokyo-purple font-bold block mb-1">03. Production Telemetry</span>
+                <span class="text-tokyo-muted">Observability through Prometheus and Grafana for query times and resource load.</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="lg:col-span-4 text-center lg:text-right border-t lg:border-t-0 lg:border-l border-tokyo-border pt-6 lg:pt-0 lg:pl-8">
+            <div class="space-y-3 font-mono text-xs">
+              <div>
+                <span class="text-tokyo-muted block">Location</span>
+                <span class="text-white font-medium">Tehran, Iran</span>
+              </div>
+              <div>
+                <span class="text-tokyo-muted block">Education</span>
+                <span class="text-white font-medium">B.Sc. in Computer Science</span>
+              </div>
+              <div>
+                <span class="text-tokyo-muted block">Core Domain</span>
+                <span class="text-tokyo-cyan font-medium">Pipelines, Storage, DataOps</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Technical Stack Grid -->
+  <section id="stack" class="py-20">
+    <div class="max-w-6xl mx-auto px-6">
+      <div class="text-center max-w-2xl mx-auto mb-16 space-y-3">
+        <h2 class="text-3xl font-extrabold text-white">Technical Arsenal</h2>
+        <p class="text-tokyo-muted font-mono text-sm">Targeted tools for building robust ingestion pipelines and scalable storage.</p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        
+        <!-- Databases & Storage -->
+        <div class="glass-card rounded-2xl p-6 space-y-4">
+          <div class="flex items-center gap-3">
+            <div class="p-3 rounded-xl bg-tokyo-blue/10 text-tokyo-blue">
+              <i data-lucide="database" class="w-6 h-6"></i>
+            </div>
+            <div>
+              <h3 class="font-bold text-white text-lg">Databases & Storage</h3>
+              <span class="text-xs font-mono text-tokyo-muted">Modeling & Performance</span>
+            </div>
+          </div>
+          <ul class="space-y-2 text-sm text-tokyo-muted font-mono">
+            <li class="flex items-center gap-2"><span class="text-tokyo-blue">▹</span> PostgreSQL (Indexes, 3NF Schema)</li>
+            <li class="flex items-center gap-2"><span class="text-tokyo-blue">▹</span> Microsoft SQL Server (T-SQL, CTEs)</li>
+            <li class="flex items-center gap-2"><span class="text-tokyo-blue">▹</span> Redis (In-Memory Key/Value Caching)</li>
+            <li class="flex items-center gap-2"><span class="text-tokyo-blue">▹</span> Query Optimization & Execution Plans</li>
+            <li class="flex items-center gap-2"><span class="text-tokyo-blue">▹</span> Persistent Volume Storage (PVC)</li>
+          </ul>
+        </div>
+
+        <!-- Languages & Ingestion -->
+        <div class="glass-card rounded-2xl p-6 space-y-4">
+          <div class="flex items-center gap-3">
+            <div class="p-3 rounded-xl bg-tokyo-green/10 text-tokyo-green">
+              <i data-lucide="code-2" class="w-6 h-6"></i>
+            </div>
+            <div>
+              <h3 class="font-bold text-white text-lg">Languages & Ingestion</h3>
+              <span class="text-xs font-mono text-tokyo-muted">ETL & Automation</span>
+            </div>
+          </div>
+          <ul class="space-y-2 text-sm text-tokyo-muted font-mono">
+            <li class="flex items-center gap-2"><span class="text-tokyo-green">▹</span> Python (Data pipelines, API fetching)</li>
+            <li class="flex items-center gap-2"><span class="text-tokyo-green">▹</span> Go (Golang concurrent backend services)</li>
+            <li class="flex items-center gap-2"><span class="text-tokyo-green">▹</span> Bash Scripting (Job automation, cron)</li>
+            <li class="flex items-center gap-2"><span class="text-tokyo-green">▹</span> JSON Parsing & Data Cleansing</li>
+            <li class="flex items-center gap-2"><span class="text-tokyo-green">▹</span> RESTful Data Endpoints (FastAPI)</li>
+          </ul>
+        </div>
+
+        <!-- DataOps & Infrastructure -->
+        <div class="glass-card rounded-2xl p-6 space-y-4">
+          <div class="flex items-center gap-3">
+            <div class="p-3 rounded-xl bg-tokyo-purple/10 text-tokyo-purple">
+              <i data-lucide="layers" class="w-6 h-6"></i>
+            </div>
+            <div>
+              <h3 class="font-bold text-white text-lg">DataOps & Reliability</h3>
+              <span class="text-xs font-mono text-tokyo-muted">Runtime & Observability</span>
+            </div>
+          </div>
+          <ul class="space-y-2 text-sm text-tokyo-muted font-mono">
+            <li class="flex items-center gap-2"><span class="text-tokyo-purple">▹</span> Linux Administration (Ubuntu Server)</li>
+            <li class="flex items-center gap-2"><span class="text-tokyo-purple">▹</span> Docker & Multi-stage Builds</li>
+            <li class="flex items-center gap-2"><span class="text-tokyo-purple">▹</span> Docker Compose Orchestration</li>
+            <li class="flex items-center gap-2"><span class="text-tokyo-purple">▹</span> Prometheus & Grafana Monitoring</li>
+            <li class="flex items-center gap-2"><span class="text-tokyo-purple">▹</span> GitHub Actions Automated Testing</li>
+          </ul>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Highlighted Projects -->
+  <section id="projects" class="py-20 border-t border-tokyo-border/50">
+    <div class="max-w-6xl mx-auto px-6 space-y-12">
+      <div class="flex flex-col md:flex-row md:items-end justify-between gap-4">
+        <div>
+          <h2 class="text-3xl font-extrabold text-white">Highlighted Projects</h2>
+          <p class="text-tokyo-muted font-mono text-sm mt-1">Real-world data architectures and containerized storage stacks.</p>
+        </div>
+        <a href="https://github.com/xpmahdi" target="_blank" class="font-mono text-sm text-tokyo-cyan hover:underline flex items-center gap-1">
+          <span>View all on GitHub</span>
+          <i data-lucide="external-link" class="w-4 h-4"></i>
+        </a>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+        
+        <!-- Project 1: CineDex -->
+        <div class="glass-card rounded-2xl p-8 flex flex-col justify-between space-y-6 group">
+          <div class="space-y-4">
+            <div class="flex items-center justify-between">
+              <span class="text-xs font-mono px-3 py-1 rounded-md bg-tokyo-card border border-tokyo-border text-tokyo-cyan">
+                Data Pipeline & Storage
+              </span>
+              <a href="https://github.com/xpmahdi/CineDex" target="_blank" class="text-tokyo-muted group-hover:text-white transition">
+                <i data-lucide="github" class="w-5 h-5"></i>
+              </a>
+            </div>
+            <h3 class="text-2xl font-bold text-white group-hover:text-tokyo-cyan transition">CineDex</h3>
+            <p class="text-tokyo-muted text-sm leading-relaxed">
+              Containerized media catalog ingestion and storage backend. Features a normalized PostgreSQL schema (3NF) with optimized indexing, persistent volumes, and health check probes for zero-downtime operations.
+            </p>
+            <div class="flex flex-wrap gap-2 pt-2">
+              <span class="text-xs font-mono px-2.5 py-1 rounded bg-tokyo-card text-tokyo-muted border border-tokyo-border">Python</span>
+              <span class="text-xs font-mono px-2.5 py-1 rounded bg-tokyo-card text-tokyo-muted border border-tokyo-border">PostgreSQL</span>
+              <span class="text-xs font-mono px-2.5 py-1 rounded bg-tokyo-card text-tokyo-muted border border-tokyo-border">Docker Compose</span>
+              <span class="text-xs font-mono px-2.5 py-1 rounded bg-tokyo-card text-tokyo-muted border border-tokyo-border">FastAPI</span>
+            </div>
+          </div>
+          <a href="https://github.com/xpmahdi/CineDex" target="_blank" class="inline-flex items-center gap-2 text-sm font-mono text-tokyo-cyan hover:underline">
+            <span>Repository & Manifests</span>
+            <i data-lucide="arrow-up-right" class="w-4 h-4"></i>
+          </a>
+        </div>
+
+        <!-- Project 2: Distributed Tiered Storage -->
+        <div class="glass-card rounded-2xl p-8 flex flex-col justify-between space-y-6 group">
+          <div class="space-y-4">
+            <div class="flex items-center justify-between">
+              <span class="text-xs font-mono px-3 py-1 rounded-md bg-tokyo-card border border-tokyo-border text-tokyo-purple">
+                In-Memory & Persistent Caching
+              </span>
+              <a href="https://github.com/xpmahdi/k8s-collaborative-todo" target="_blank" class="text-tokyo-muted group-hover:text-white transition">
+                <i data-lucide="github" class="w-5 h-5"></i>
+              </a>
+            </div>
+            <h3 class="text-2xl font-bold text-white group-hover:text-tokyo-purple transition">Distributed Data & Cache Tier</h3>
+            <p class="text-tokyo-muted text-sm leading-relaxed">
+              Multi-tiered storage setup leveraging an in-memory Redis cache alongside a persistent PostgreSQL cluster. Packaged with Kubernetes manifests (StatefulSets & PVCs) to validate zero data loss across node failures.
+            </p>
+            <div class="flex flex-wrap gap-2 pt-2">
+              <span class="text-xs font-mono px-2.5 py-1 rounded bg-tokyo-card text-tokyo-muted border border-tokyo-border">Go</span>
+              <span class="text-xs font-mono px-2.5 py-1 rounded bg-tokyo-card text-tokyo-muted border border-tokyo-border">Redis</span>
+              <span class="text-xs font-mono px-2.5 py-1 rounded bg-tokyo-card text-tokyo-muted border border-tokyo-border">PostgreSQL</span>
+              <span class="text-xs font-mono px-2.5 py-1 rounded bg-tokyo-card text-tokyo-muted border border-tokyo-border">k3s</span>
+            </div>
+          </div>
+          <a href="https://github.com/xpmahdi/k8s-collaborative-todo" target="_blank" class="inline-flex items-center gap-2 text-sm font-mono text-tokyo-purple hover:underline">
+            <span>Repository & Architecture</span>
+            <i data-lucide="arrow-up-right" class="w-4 h-4"></i>
+          </a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Interactive Pipeline Sandbox -->
+  <section id="pipeline-lab" class="py-20">
+    <div class="max-w-6xl mx-auto px-6">
+      <div class="glass-card rounded-3xl p-8 border border-tokyo-border space-y-6">
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-tokyo-border pb-6">
+          <div>
+            <h3 class="text-xl font-bold text-white">Pipeline Lab: Code Showcase</h3>
+            <p class="text-xs font-mono text-tokyo-muted mt-1">Sample scripts demonstrating data ingestion logic and schema indexing.</p>
+          </div>
+          <div class="flex items-center gap-2 font-mono text-xs">
+            <button id="btn-python" onclick="switchSnippet('python')" class="px-3 py-1.5 rounded-lg bg-tokyo-cyan text-tokyo-bg font-bold">
+              Python Ingest
+            </button>
+            <button id="btn-sql" onclick="switchSnippet('sql')" class="px-3 py-1.5 rounded-lg bg-tokyo-card text-tokyo-muted hover:text-white border border-tokyo-border">
+              PostgreSQL Schema
+            </button>
+          </div>
+        </div>
+
+        <div class="relative font-mono text-xs bg-tokyo-bg/95 p-6 rounded-2xl border border-tokyo-border overflow-x-auto">
+          <pre id="code-snippet" class="text-tokyo-cyan"><code># Python Data Ingestion Worker
+import httpx
+import psycopg2
+from psycopg2.extras import execute_batch
+
+def ingest_media_records(api_endpoint: str, db_conn):
+    response = httpx.get(api_endpoint, timeout=10.0)
+    records = response.json().get("items", [])
+    
+    clean_payload = [
+        (item["id"], item["title"], item.get("release_year"), item.get("rating"))
+        for item in records if item.get("title")
+    ]
+    
+    query = """
+        INSERT INTO media_catalog (external_id, title, release_year, rating)
+        VALUES (%s, %s, %s, %s)
+        ON CONFLICT (external_id) DO UPDATE 
+        SET rating = EXCLUDED.rating, updated_at = NOW();
+    """
+    with db_conn.cursor() as cur:
+        execute_batch(cur, query, clean_payload, page_size=200)
+    db_conn.commit()
+    return len(clean_payload)</code></pre>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- GitHub Streak Banner -->
+  <section class="py-12 border-t border-tokyo-border/50">
+    <div class="max-w-4xl mx-auto px-6 text-center space-y-6">
+      <h3 class="text-lg font-mono text-tokyo-muted">_activity_telemetry</h3>
+      <div class="flex justify-center">
+        <img src="https://streak-stats.demolab.com?user=xpmahdi&theme=tokyonight&hide_border=true" alt="Mahdi Hosseini GitHub Streak" class="max-w-full rounded-2xl shadow-lg border border-tokyo-border">
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer / Contact -->
+  <footer id="contact" class="py-16 border-t border-tokyo-border bg-tokyo-card/40">
+    <div class="max-w-6xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-8">
+      <div class="space-y-2 text-center md:text-left">
+        <div class="font-mono text-lg font-bold text-white">Mahdi Hosseini</div>
+        <p class="text-xs font-mono text-tokyo-muted">
+          "The Normal One in Data Engineering." — Focused on clean data & solid foundations.
+        </p>
+      </div>
+
+      <div class="flex items-center gap-4 font-mono text-xs">
+        <a href="mailto:mahdihosseini1892@gmail.com" class="p-3 rounded-xl glass-card text-white hover:text-tokyo-cyan transition flex items-center gap-2">
+          <i data-lucide="mail" class="w-4 h-4 text-tokyo-cyan"></i>
+          <span>Email Me</span>
+        </a>
+        <a href="https://linkedin.com/in/mahdi-hosseini19" target="_blank" class="p-3 rounded-xl glass-card text-white hover:text-tokyo-cyan transition flex items-center gap-2">
+          <i data-lucide="linkedin" class="w-4 h-4 text-tokyo-cyan"></i>
+          <span>LinkedIn</span>
+        </a>
+        <a href="https://github.com/xpmahdi" target="_blank" class="p-3 rounded-xl glass-card text-white hover:text-tokyo-cyan transition flex items-center gap-2">
+          <i data-lucide="github" class="w-4 h-4 text-tokyo-cyan"></i>
+          <span>GitHub</span>
+        </a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Initialize Lucide Icons
+    lucide.createIcons();
+
+    // Code Snippet Switcher
+    const pythonSnippet = `# Python Data Ingestion Worker
+import httpx
+import psycopg2
+from psycopg2.extras import execute_batch
+
+def ingest_media_records(api_endpoint: str, db_conn):
+    response = httpx.get(api_endpoint, timeout=10.0)
+    records = response.json().get("items", [])
+    
+    clean_payload = [
+        (item["id"], item["title"], item.get("release_year"), item.get("rating"))
+        for item in records if item.get("title")
+    ]
+    
+    query = """
+        INSERT INTO media_catalog (external_id, title, release_year, rating)
+        VALUES (%s, %s, %s, %s)
+        ON CONFLICT (external_id) DO UPDATE 
+        SET rating = EXCLUDED.rating, updated_at = NOW();
+    """
+    with db_conn.cursor() as cur:
+        execute_batch(cur, query, clean_payload, page_size=200)
+    db_conn.commit()
+    return len(clean_payload)`;
+
+    const sqlSnippet = `-- PostgreSQL Normalized Schema & Indexing
+CREATE TABLE IF NOT EXISTS media_catalog (
+    id SERIAL PRIMARY KEY,
+    external_id VARCHAR(64) UNIQUE NOT NULL,
+    title VARCHAR(255) NOT NULL,
+    release_year SMALLINT CHECK (release_year >= 1888),
+    rating NUMERIC(3, 1),
+    created_at TIMESTAMP WITH TIME ZONE DEFAULT NOW(),
+    updated_at TIMESTAMP WITH TIME ZONE DEFAULT NOW()
+);
+
+-- Fast lookup composite indexes
+CREATE INDEX idx_media_rating ON media_catalog (rating DESC);
+CREATE INDEX idx_media_release_year ON media_catalog (release_year);
+
+-- In-Memory cache eviction tracking
+COMMENT ON TABLE media_catalog IS 'Source of truth synchronized with Redis cache keys.';`;
+
+    function switchSnippet(type) {
+      const btnPy = document.getElementById('btn-python');
+      const btnSql = document.getElementById('btn-sql');
+      const codeEl = document.querySelector('#code-snippet code');
+
+      if (type === 'python') {
+        codeEl.textContent = pythonSnippet;
+        btnPy.className = "px-3 py-1.5 rounded-lg bg-tokyo-cyan text-tokyo-bg font-bold";
+        btnSql.className = "px-3 py-1.5 rounded-lg bg-tokyo-card text-tokyo-muted hover:text-white border border-tokyo-border";
+      } else {
+        codeEl.textContent = sqlSnippet;
+        btnSql.className = "px-3 py-1.5 rounded-lg bg-tokyo-cyan text-tokyo-bg font-bold";
+        btnPy.className = "px-3 py-1.5 rounded-lg bg-tokyo-card text-tokyo-muted hover:text-white border border-tokyo-border";
+      }
+    }
+  </script>
+</body>
+</html>
