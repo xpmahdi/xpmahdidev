@@ -3,13 +3,13 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Mahdi Hosseini | Data Engineer & DataOps</title>
+  <title>Mahdi Hosseini | DevOps Engineer & Systems Infrastructure</title>
   
   <!-- SEO & OpenGraph -->
-  <meta name="description" content="Portfolio of Mahdi Hosseini (xpmahdi) - Data Engineer & DataOps practitioner specializing in PostgreSQL, Python, Docker, and resilient data pipelines.">
-  <meta name="keywords" content="Mahdi Hosseini, xpmahdi, Data Engineer, DataOps, PostgreSQL, Python, Docker, Linux, Tehran">
-  <meta property="og:title" content="Mahdi Hosseini — Data Engineer">
-  <meta property="og:description" content="The Normal One in Data Engineering — Architecting reliable pipelines, optimized SQL schemas, and reproducible DataOps workflows.">
+  <meta name="description" content="Portfolio of Mahdi Hosseini (xpmahdi) - DevOps Engineer specializing in Linux, Docker, Kubernetes (k3s), CI/CD pipelines, and observability.">
+  <meta name="keywords" content="Mahdi Hosseini, xpmahdi, DevOps Engineer, Kubernetes, k3s, Docker, Linux, CI/CD, GitHub Actions, Prometheus, Grafana, Nginx, Tehran">
+  <meta property="og:title" content="Mahdi Hosseini — DevOps Engineer">
+  <meta property="og:description" content="The Normal One in DevOps — Architecting resilient Linux infrastructure, automated CI/CD pipelines, and reproducible container environments.">
   <meta property="og:type" content="website">
 
   <!-- Tailwind CSS CDN -->
@@ -102,7 +102,7 @@
         <a href="#about" class="hover:text-sky-400 transition-colors">Philosophy</a>
         <a href="#skills" class="hover:text-sky-400 transition-colors">Tech Stack</a>
         <a href="#projects" class="hover:text-sky-400 transition-colors">Projects</a>
-        <a href="#interactive" class="hover:text-sky-400 transition-colors">Live ETL Demo</a>
+        <a href="#interactive" class="hover:text-sky-400 transition-colors">Infra Manifests</a>
         <a href="#contact" class="hover:text-sky-400 transition-colors">Contact</a>
       </nav>
 
@@ -132,7 +132,7 @@
       <a href="#about" onclick="toggleMobileMenu()" class="block text-slate-300 hover:text-sky-400">01. Philosophy</a>
       <a href="#skills" onclick="toggleMobileMenu()" class="block text-slate-300 hover:text-sky-400">02. Tech Stack</a>
       <a href="#projects" onclick="toggleMobileMenu()" class="block text-slate-300 hover:text-sky-400">03. Projects</a>
-      <a href="#interactive" onclick="toggleMobileMenu()" class="block text-slate-300 hover:text-sky-400">04. Live ETL Demo</a>
+      <a href="#interactive" onclick="toggleMobileMenu()" class="block text-slate-300 hover:text-sky-400">04. Infra Manifests</a>
       <a href="#contact" onclick="toggleMobileMenu()" class="block text-slate-300 hover:text-sky-400">05. Contact</a>
     </div>
   </header>
@@ -147,7 +147,7 @@
         <!-- Status Badge -->
         <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-emerald-500/30 bg-emerald-950/30 text-emerald-400 text-xs font-mono">
           <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
-          Available for Junior Data Engineer & DataOps Roles
+          Available for DevOps & Site Reliability Roles
         </div>
 
         <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-white leading-tight">
@@ -155,22 +155,22 @@
         </h1>
 
         <p class="text-lg sm:text-xl text-sky-400 font-mono font-medium">
-          Junior Data Engineer • DataOps & Systems Practitioner
+          DevOps Engineer • Cloud-Native & Systems Infrastructure
         </p>
 
         <blockquote class="p-4 rounded-xl border-l-4 border-sky-400 bg-slate-900/60 text-slate-300 italic text-sm sm:text-base leading-relaxed">
-          "The Normal One in Data Engineering — Architecting reliable pipelines, clean relational schemas, and reproducible DataOps workflows."
+          "The Normal One in DevOps — Architecting resilient infrastructure, automated CI/CD pipelines, and reproducible container environments."
         </blockquote>
 
         <p class="text-slate-400 text-sm sm:text-base leading-relaxed max-w-2xl">
-          Computer Science student at Islamic Azad University (Central Tehran). Leveraging deep Linux, Docker, and observability fundamentals to build durable database architectures and unbreakable batch ingestion pipelines.
+          Computer Science student at Islamic Azad University (Central Tehran). Leveraging bare-metal Linux administration, Docker/k3s orchestration, and full-stack observability to automate delivery and eliminate manual operational toil.
         </p>
 
         <!-- CTAs -->
         <div class="flex flex-wrap items-center gap-4 pt-2">
           <a href="#projects" class="px-5 py-3 rounded-lg bg-gradient-to-r from-sky-500 to-indigo-600 hover:from-sky-400 hover:to-indigo-500 text-white font-medium text-sm flex items-center gap-2 shadow-lg shadow-sky-500/20 transition-all hover:scale-102">
             <i data-lucide="layers" class="w-4 h-4"></i>
-            Explore Projects
+            Explore Infrastructure
           </a>
           <a href="#contact" class="px-5 py-3 rounded-lg border border-slate-700 hover:border-sky-500/50 bg-slate-900/60 hover:bg-slate-800 text-slate-200 font-medium text-sm flex items-center gap-2 transition-all">
             <i data-lucide="mail" class="w-4 h-4 text-sky-400"></i>
@@ -196,30 +196,31 @@
               <span class="w-3 h-3 rounded-full bg-emerald-500/80"></span>
             </div>
             <div class="font-mono text-xs text-slate-400 flex items-center gap-1.5">
-              <i data-lucide="database" class="w-3.5 h-3.5 text-sky-400"></i>
-              <span>cinedex-etl-worker.py</span>
+              <i data-lucide="server" class="w-3.5 h-3.5 text-sky-400"></i>
+              <span>k3s-prod-cluster — zsh</span>
             </div>
             <div class="w-12"></div>
           </div>
 
-          <!-- Terminal Content with animated log lines -->
+          <!-- Terminal Content with DevOps logs -->
           <div class="p-5 font-mono text-xs space-y-2 text-slate-300 leading-relaxed overflow-x-auto min-h-[290px]" id="terminal-body">
-            <div class="text-slate-500"># Initializing PostgreSQL database container sync...</div>
-            <div class="text-sky-400">$ python -m ingestion.pipeline --env=production</div>
-            <div class="text-emerald-400">[2026-11-11 13:01:02] [INFO] Database pool connected: postgresql://cinedex_db:5432</div>
-            <div class="text-slate-400">[2026-11-11 13:01:03] [EXTRACT] 1,420 raw media records fetched via REST</div>
-            <div class="text-amber-400">[2026-11-11 13:01:04] [TRANSFORM] Normalized 3NF schemas, verified FK constraints</div>
-            <div class="text-indigo-400">[2026-11-11 13:01:05] [LOAD] Bulk UPSERT into postgres with B-Tree indexes</div>
-            <div class="text-emerald-400">[2026-11-11 13:01:05] [SUCCESS] Pipeline elapsed: 1.24s. Prometheus scraped 200 OK.</div>
+            <div class="text-slate-500"># Verifying k3s cluster & rollout status...</div>
+            <div class="text-sky-400">$ kubectl get pods -n production</div>
+            <div class="text-emerald-400">api-gateway-7d8f9c6b4-xk29p &nbsp;&nbsp; 1/1 &nbsp; Running &nbsp; 14d</div>
+            <div class="text-emerald-400">postgres-stateful-0 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 1/1 &nbsp; Running &nbsp; 14d</div>
+            <div class="text-emerald-400">redis-cache-master-0 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 1/1 &nbsp; Running &nbsp; 14d</div>
+            <div class="text-sky-400 pt-1">$ curl -sI https://api.xpmahdi.dev/healthz | head -n 1</div>
+            <div class="text-amber-300">HTTP/2 200 OK (Nginx Ingress • TLS 1.3)</div>
+            <div class="text-indigo-400">[PROMETHEUS] All targets UP • Error rate: 0.00%</div>
             <div class="pt-2 text-slate-500 flex items-center gap-1">
-              <span class="text-sky-400">xpmahdi@server:~$</span>
+              <span class="text-sky-400">xpmahdi@node-01:~$</span>
               <span id="terminal-live-cursor" class="terminal-cursor text-slate-200">ready</span>
             </div>
           </div>
 
           <div class="px-4 py-2 bg-[#0c1018] border-t border-slate-800/80 flex items-center justify-between text-[11px] font-mono text-slate-400">
-            <span>Container: Docker Compose</span>
-            <span class="text-emerald-400 flex items-center gap-1">● PersistentVolume: Active</span>
+            <span>Orchestrator: Kubernetes (k3s)</span>
+            <span class="text-emerald-400 flex items-center gap-1">● Cluster Health: Optimal</span>
           </div>
 
         </div>
@@ -238,7 +239,7 @@
           Why "The Normal One"?
         </h3>
         <p class="text-slate-400 text-sm sm:text-base leading-relaxed">
-          In an industry cluttered with buzzword overload and fragile, over-engineered architectures, I prioritize the bedrock: clean database fundamentals, predictable code, and reproducible system environments.
+          In an ecosystem cluttered with hype-driven complexity and fragile abstractions, I prioritize the bedrock: rock-solid Linux fundamentals, reproducible containers, and automated delivery pipelines.
         </p>
       </div>
 
@@ -247,22 +248,22 @@
         <!-- Card 1 -->
         <div class="p-6 rounded-xl border border-slate-800 bg-[#131a26]/80 hover:border-slate-700 transition-all space-y-3">
           <div class="w-10 h-10 rounded-lg bg-sky-500/10 border border-sky-500/30 flex items-center justify-center text-sky-400">
-            <i data-lucide="hard-drive" class="w-5 h-5"></i>
+            <i data-lucide="container" class="w-5 h-5"></i>
           </div>
-          <h4 class="text-lg font-bold text-white">Relational Integrity First</h4>
+          <h4 class="text-lg font-bold text-white">Reproducible Infrastructure</h4>
           <p class="text-slate-400 text-xs sm:text-sm leading-relaxed">
-            Fancy models fail if the data warehouse is full of duplicates and orphaned rows. I focus heavily on normalized relational schemas (3NF), constraints, and index profiling.
+            Eliminating "it worked on my machine". Services are packaged in multi-stage Docker images, orchestrated with Compose or k3s, and backed by persistent storage volumes.
           </p>
         </div>
 
         <!-- Card 2 -->
         <div class="p-6 rounded-xl border border-slate-800 bg-[#131a26]/80 hover:border-slate-700 transition-all space-y-3">
           <div class="w-10 h-10 rounded-lg bg-emerald-500/10 border border-emerald-500/30 flex items-center justify-center text-emerald-400">
-            <i data-lucide="container" class="w-5 h-5"></i>
+            <i data-lucide="git-merge" class="w-5 h-5"></i>
           </div>
-          <h4 class="text-lg font-bold text-white">DataOps & Reproducibility</h4>
+          <h4 class="text-lg font-bold text-white">Automated CI/CD & Resilience</h4>
           <p class="text-slate-400 text-xs sm:text-sm leading-relaxed">
-            Eliminating "it worked on my machine". Pipelines are fully containerized with Docker, automated with GitHub Actions, and backed by isolated volumes for persistent storage.
+            Manual deployments don't scale. I build automated GitHub Actions workflows for linting, testing, and image builds alongside HAProxy/Nginx load balancing for high availability.
           </p>
         </div>
 
@@ -271,9 +272,9 @@
           <div class="w-10 h-10 rounded-lg bg-purple-500/10 border border-purple-500/30 flex items-center justify-center text-purple-400">
             <i data-lucide="activity" class="w-5 h-5"></i>
           </div>
-          <h4 class="text-lg font-bold text-white">Metrics-Driven Observability</h4>
+          <h4 class="text-lg font-bold text-white">Proactive Observability</h4>
           <p class="text-slate-400 text-xs sm:text-sm leading-relaxed">
-            A pipeline isn't complete without telemetry. Real-time metric scraping with Prometheus and visual Grafana dashboards ensure query bottlenecks and connection spikes are caught early.
+            You can't fix what you can't see. Real-time metric scraping with Prometheus, visual Grafana dashboards, and PromQL alert rules detect bottlenecks before downtime happens.
           </p>
         </div>
 
@@ -288,129 +289,129 @@
       
       <div class="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-4">
         <div>
-          <h2 class="text-xs uppercase tracking-widest text-sky-400 font-mono font-bold mb-2">Technical Toolkit</h2>
-          <h3 class="text-3xl font-extrabold text-white tracking-tight">Core Competencies</h3>
+          <h2 class="text-xs uppercase tracking-widest text-sky-400 font-mono font-bold mb-2">Infrastructure Toolkit</h2>
+          <h3 class="text-3xl font-extrabold text-white tracking-tight">Core DevOps Competencies</h3>
         </div>
         
         <!-- Filter Tabs -->
         <div class="flex flex-wrap gap-2 text-xs font-mono">
           <button onclick="filterSkills('all')" class="skill-tab active-tab px-3 py-1.5 rounded-lg border border-sky-500 bg-sky-500/20 text-sky-300 font-semibold transition-all">All</button>
-          <button onclick="filterSkills('data')" class="skill-tab px-3 py-1.5 rounded-lg border border-slate-800 bg-slate-900/60 text-slate-400 hover:text-white transition-all">Data & Storage</button>
-          <button onclick="filterSkills('pipeline')" class="skill-tab px-3 py-1.5 rounded-lg border border-slate-800 bg-slate-900/60 text-slate-400 hover:text-white transition-all">Ingestion & Scripting</button>
-          <button onclick="filterSkills('ops')" class="skill-tab px-3 py-1.5 rounded-lg border border-slate-800 bg-slate-900/60 text-slate-400 hover:text-white transition-all">DataOps & Systems</button>
+          <button onclick="filterSkills('containers')" class="skill-tab px-3 py-1.5 rounded-lg border border-slate-800 bg-slate-900/60 text-slate-400 hover:text-white transition-all">Containers & K8s</button>
+          <button onclick="filterSkills('infra')" class="skill-tab px-3 py-1.5 rounded-lg border border-slate-800 bg-slate-900/60 text-slate-400 hover:text-white transition-all">Linux, CI/CD & Net</button>
+          <button onclick="filterSkills('observability')" class="skill-tab px-3 py-1.5 rounded-lg border border-slate-800 bg-slate-900/60 text-slate-400 hover:text-white transition-all">Observability & Data</button>
         </div>
       </div>
 
       <!-- Skills Grid -->
       <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4" id="skills-grid">
         
-        <!-- PostgreSQL -->
-        <div class="skill-item p-4 rounded-xl border border-slate-800 bg-[#121824] flex items-center gap-3.5" data-category="data">
-          <div class="w-10 h-10 rounded-lg bg-blue-900/30 border border-blue-500/30 flex items-center justify-center text-blue-400 font-bold font-mono">
-            PG
-          </div>
-          <div>
-            <div class="text-sm font-bold text-white">PostgreSQL</div>
-            <div class="text-xs text-slate-400">Schemas, Indexes, 3NF</div>
-          </div>
-        </div>
-
-        <!-- SQL Server -->
-        <div class="skill-item p-4 rounded-xl border border-slate-800 bg-[#121824] flex items-center gap-3.5" data-category="data">
-          <div class="w-10 h-10 rounded-lg bg-red-900/30 border border-red-500/30 flex items-center justify-center text-red-400 font-bold font-mono">
-            SQL
-          </div>
-          <div>
-            <div class="text-sm font-bold text-white">MS SQL Server</div>
-            <div class="text-xs text-slate-400">T-SQL, Aggregations</div>
-          </div>
-        </div>
-
-        <!-- Redis -->
-        <div class="skill-item p-4 rounded-xl border border-slate-800 bg-[#121824] flex items-center gap-3.5" data-category="data">
-          <div class="w-10 h-10 rounded-lg bg-rose-900/30 border border-rose-500/30 flex items-center justify-center text-rose-400 font-bold font-mono">
-            RD
-          </div>
-          <div>
-            <div class="text-sm font-bold text-white">Redis</div>
-            <div class="text-xs text-slate-400">In-Memory Cache & TTL</div>
-          </div>
-        </div>
-
-        <!-- Python -->
-        <div class="skill-item p-4 rounded-xl border border-slate-800 bg-[#121824] flex items-center gap-3.5" data-category="pipeline">
-          <div class="w-10 h-10 rounded-lg bg-amber-900/30 border border-amber-500/30 flex items-center justify-center text-amber-400 font-bold font-mono">
-            Py
-          </div>
-          <div>
-            <div class="text-sm font-bold text-white">Python</div>
-            <div class="text-xs text-slate-400">FastAPI, Pandas, ETL</div>
-          </div>
-        </div>
-
-        <!-- Go -->
-        <div class="skill-item p-4 rounded-xl border border-slate-800 bg-[#121824] flex items-center gap-3.5" data-category="pipeline">
-          <div class="w-10 h-10 rounded-lg bg-cyan-900/30 border border-cyan-500/30 flex items-center justify-center text-cyan-400 font-bold font-mono">
-            Go
-          </div>
-          <div>
-            <div class="text-sm font-bold text-white">Go (Golang)</div>
-            <div class="text-xs text-slate-400">Concurrency, Microservices</div>
-          </div>
-        </div>
-
-        <!-- Bash -->
-        <div class="skill-item p-4 rounded-xl border border-slate-800 bg-[#121824] flex items-center gap-3.5" data-category="pipeline">
-          <div class="w-10 h-10 rounded-lg bg-emerald-900/30 border border-emerald-500/30 flex items-center justify-center text-emerald-400 font-bold font-mono">
-            SH
-          </div>
-          <div>
-            <div class="text-sm font-bold text-white">Bash Scripting</div>
-            <div class="text-xs text-slate-400">Cron Jobs & Automations</div>
-          </div>
-        </div>
-
         <!-- Docker -->
-        <div class="skill-item p-4 rounded-xl border border-slate-800 bg-[#121824] flex items-center gap-3.5" data-category="ops">
+        <div class="skill-item p-4 rounded-xl border border-slate-800 bg-[#121824] flex items-center gap-3.5" data-category="containers">
           <div class="w-10 h-10 rounded-lg bg-sky-900/30 border border-sky-500/30 flex items-center justify-center text-sky-400 font-bold font-mono">
             DK
           </div>
           <div>
             <div class="text-sm font-bold text-white">Docker & Compose</div>
-            <div class="text-xs text-slate-400">Multi-stage, Volumes</div>
+            <div class="text-xs text-slate-400">Multi-stage, Networks</div>
+          </div>
+        </div>
+
+        <!-- Kubernetes / k3s -->
+        <div class="skill-item p-4 rounded-xl border border-slate-800 bg-[#121824] flex items-center gap-3.5" data-category="containers">
+          <div class="w-10 h-10 rounded-lg bg-blue-900/30 border border-blue-500/30 flex items-center justify-center text-blue-400 font-bold font-mono">
+            K8s
+          </div>
+          <div>
+            <div class="text-sm font-bold text-white">Kubernetes (k3s)</div>
+            <div class="text-xs text-slate-400">StatefulSets, PVCs, Ingress</div>
           </div>
         </div>
 
         <!-- Linux -->
-        <div class="skill-item p-4 rounded-xl border border-slate-800 bg-[#121824] flex items-center gap-3.5" data-category="ops">
+        <div class="skill-item p-4 rounded-xl border border-slate-800 bg-[#121824] flex items-center gap-3.5" data-category="infra">
           <div class="w-10 h-10 rounded-lg bg-slate-800 border border-slate-600 flex items-center justify-center text-slate-300 font-bold font-mono">
             LX
           </div>
           <div>
             <div class="text-sm font-bold text-white">Linux Administration</div>
-            <div class="text-xs text-slate-400">Ubuntu, systemd, I/O</div>
+            <div class="text-xs text-slate-400">Ubuntu, systemd, LPIC-1</div>
           </div>
         </div>
 
         <!-- GitHub Actions -->
-        <div class="skill-item p-4 rounded-xl border border-slate-800 bg-[#121824] flex items-center gap-3.5" data-category="ops">
+        <div class="skill-item p-4 rounded-xl border border-slate-800 bg-[#121824] flex items-center gap-3.5" data-category="infra">
           <div class="w-10 h-10 rounded-lg bg-indigo-900/30 border border-indigo-500/30 flex items-center justify-center text-indigo-400 font-bold font-mono">
             CI
           </div>
           <div>
             <div class="text-sm font-bold text-white">GitHub Actions</div>
-            <div class="text-xs text-slate-400">Test suites & Linting</div>
+            <div class="text-xs text-slate-400">CI/CD Pipelines & Testing</div>
+          </div>
+        </div>
+
+        <!-- Nginx & HAProxy -->
+        <div class="skill-item p-4 rounded-xl border border-slate-800 bg-[#121824] flex items-center gap-3.5" data-category="infra">
+          <div class="w-10 h-10 rounded-lg bg-emerald-900/30 border border-emerald-500/30 flex items-center justify-center text-emerald-400 font-bold font-mono">
+            LB
+          </div>
+          <div>
+            <div class="text-sm font-bold text-white">Nginx & HAProxy</div>
+            <div class="text-xs text-slate-400">Reverse Proxy, SSL, HA</div>
+          </div>
+        </div>
+
+        <!-- Bash & Python -->
+        <div class="skill-item p-4 rounded-xl border border-slate-800 bg-[#121824] flex items-center gap-3.5" data-category="infra">
+          <div class="w-10 h-10 rounded-lg bg-amber-900/30 border border-amber-500/30 flex items-center justify-center text-amber-400 font-bold font-mono">
+            SH
+          </div>
+          <div>
+            <div class="text-sm font-bold text-white">Bash & Python</div>
+            <div class="text-xs text-slate-400">Ops Automation & FastAPI</div>
           </div>
         </div>
 
         <!-- Prometheus & Grafana -->
-        <div class="skill-item p-4 rounded-xl border border-slate-800 bg-[#121824] flex items-center gap-3.5" data-category="ops">
+        <div class="skill-item p-4 rounded-xl border border-slate-800 bg-[#121824] flex items-center gap-3.5" data-category="observability">
           <div class="w-10 h-10 rounded-lg bg-orange-900/30 border border-orange-500/30 flex items-center justify-center text-orange-400 font-bold font-mono">
             OB
           </div>
           <div>
             <div class="text-sm font-bold text-white">Prometheus & Grafana</div>
-            <div class="text-xs text-slate-400">Database & Host Metrics</div>
+            <div class="text-xs text-slate-400">Metrics, PromQL & Alerts</div>
+          </div>
+        </div>
+
+        <!-- PostgreSQL -->
+        <div class="skill-item p-4 rounded-xl border border-slate-800 bg-[#121824] flex items-center gap-3.5" data-category="observability">
+          <div class="w-10 h-10 rounded-lg bg-blue-900/30 border border-blue-500/30 flex items-center justify-center text-blue-400 font-bold font-mono">
+            PG
+          </div>
+          <div>
+            <div class="text-sm font-bold text-white">PostgreSQL</div>
+            <div class="text-xs text-slate-400">Admin, Backup & Tuning</div>
+          </div>
+        </div>
+
+        <!-- Redis -->
+        <div class="skill-item p-4 rounded-xl border border-slate-800 bg-[#121824] flex items-center gap-3.5" data-category="observability">
+          <div class="w-10 h-10 rounded-lg bg-rose-900/30 border border-rose-500/30 flex items-center justify-center text-rose-400 font-bold font-mono">
+            RD
+          </div>
+          <div>
+            <div class="text-sm font-bold text-white">Redis</div>
+            <div class="text-xs text-slate-400">In-Memory Caching & HA</div>
+          </div>
+        </div>
+
+        <!-- Go -->
+        <div class="skill-item p-4 rounded-xl border border-slate-800 bg-[#121824] flex items-center gap-3.5" data-category="containers">
+          <div class="w-10 h-10 rounded-lg bg-cyan-900/30 border border-cyan-500/30 flex items-center justify-center text-cyan-400 font-bold font-mono">
+            Go
+          </div>
+          <div>
+            <div class="text-sm font-bold text-white">Go (Golang)</div>
+            <div class="text-xs text-slate-400">Cloud-Native Services</div>
           </div>
         </div>
 
@@ -424,65 +425,33 @@
     <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
       
       <div class="mb-14">
-        <h2 class="text-xs uppercase tracking-widest text-sky-400 font-mono font-bold mb-2">Portfolio Showcase</h2>
-        <h3 class="text-3xl font-extrabold text-white tracking-tight">Featured Engineering Projects</h3>
-        <p class="text-slate-400 text-sm mt-1">Real-world pipelines, resilient storage architectures, and telemetry infrastructure.</p>
+        <h2 class="text-xs uppercase tracking-widest text-sky-400 font-mono font-bold mb-2">Infrastructure Showcase</h2>
+        <h3 class="text-3xl font-extrabold text-white tracking-tight">Featured DevOps & Platform Projects</h3>
+        <p class="text-slate-400 text-sm mt-1">Production-grade Kubernetes clusters, high-availability proxies, and automated CI/CD stacks.</p>
       </div>
 
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
         
-        <!-- Project 1: CineDex -->
-        <div class="rounded-xl border border-slate-800 bg-[#121722] overflow-hidden flex flex-col justify-between hover:border-sky-500/40 transition-all group">
+        <!-- Project 1: k8s-collaborative-todo -->
+        <div class="rounded-xl border border-slate-800 bg-[#121722] overflow-hidden flex flex-col justify-between hover:border-emerald-500/40 transition-all group">
           <div class="p-6 space-y-4">
             <div class="flex items-center justify-between text-xs font-mono text-slate-400">
-              <span class="text-sky-400">ETL & Database Storage</span>
-              <span class="px-2 py-0.5 rounded bg-sky-950/60 border border-sky-800/60 text-sky-300">FastAPI • PostgreSQL</span>
-            </div>
-
-            <h4 class="text-xl font-bold text-white group-hover:text-sky-300 transition-colors">
-              CineDex — Automated Media Ingestion Engine
-            </h4>
-
-            <p class="text-slate-400 text-xs sm:text-sm leading-relaxed">
-              Modular data ingestion service designed to extract, clean, and store complex catalog records. Built with normalized 3NF schemas, foreign key integrity checks, and composite B-Tree indexes.
-            </p>
-
-            <ul class="text-xs text-slate-300 space-y-1.5 list-disc list-inside">
-              <li>Docker Compose with persistent volume mounts</li>
-              <li>Multi-stage build reducing artifact size by 60%+</li>
-              <li>Live healthcheck probes (<code class="text-sky-300">/healthz</code>, <code class="text-sky-300">/readyz</code>)</li>
-            </ul>
-          </div>
-
-          <div class="p-6 pt-0 border-t border-slate-800/60 mt-4 flex items-center justify-between">
-            <a href="https://github.com/xpmahdi/CineDex" target="_blank" rel="noopener" class="text-xs font-mono text-sky-400 hover:text-sky-300 flex items-center gap-1.5">
-              <span>View Source Code</span>
-              <i data-lucide="external-link" class="w-3.5 h-3.5"></i>
-            </a>
-            <span class="text-[11px] font-mono text-slate-500">Public Repo</span>
-          </div>
-        </div>
-
-        <!-- Project 2: Distributed Tiered Storage -->
-        <div class="rounded-xl border border-slate-800 bg-[#121722] overflow-hidden flex flex-col justify-between hover:border-sky-500/40 transition-all group">
-          <div class="p-6 space-y-4">
-            <div class="flex items-center justify-between text-xs font-mono text-slate-400">
-              <span class="text-emerald-400">Distributed Persistence</span>
-              <span class="px-2 py-0.5 rounded bg-emerald-950/60 border border-emerald-800/60 text-emerald-300">Redis • k3s</span>
+              <span class="text-emerald-400">Kubernetes Orchestration</span>
+              <span class="px-2 py-0.5 rounded bg-emerald-950/60 border border-emerald-800/60 text-emerald-300">k3s • Go • Redis</span>
             </div>
 
             <h4 class="text-xl font-bold text-white group-hover:text-emerald-300 transition-colors">
-              Distributed Tiered Storage & Caching Layer
+              Self-Healing Multi-Tier Kubernetes Cluster
             </h4>
 
             <p class="text-slate-400 text-xs sm:text-sm leading-relaxed">
-              Resilient tiered persistence stack pairing in-memory Redis caching with a PostgreSQL master store on a lightweight k3s cluster to maximize query throughput.
+              Deployed a multi-tier microservices architecture (Go API, Nginx frontend, Redis cache, PostgreSQL database) on a k3s cluster with Ingress traffic routing.
             </p>
 
             <ul class="text-xs text-slate-300 space-y-1.5 list-disc list-inside">
-              <li>StatefulSet & PersistentVolumeClaim (PVC) allocation</li>
-              <li>Simulated worker teardown drills for zero data loss</li>
-              <li>High cache-hit ratio for repeated database read queries</li>
+              <li>StatefulSets & PersistentVolumeClaims (PVCs)</li>
+              <li>Live Chaos Testing on Redis pods for self-healing</li>
+              <li>Readiness/Liveness probes for zero-downtime routing</li>
             </ul>
           </div>
 
@@ -495,35 +464,67 @@
           </div>
         </div>
 
-        <!-- Project 3: Production Observability Stack -->
+        <!-- Project 2: high-availability-sandbox -->
         <div class="rounded-xl border border-slate-800 bg-[#121722] overflow-hidden flex flex-col justify-between hover:border-sky-500/40 transition-all group">
           <div class="p-6 space-y-4">
             <div class="flex items-center justify-between text-xs font-mono text-slate-400">
-              <span class="text-purple-400">DataOps Telemetry</span>
-              <span class="px-2 py-0.5 rounded bg-purple-950/60 border border-purple-800/60 text-purple-300">Prometheus • Grafana</span>
+              <span class="text-sky-400">High Availability & Routing</span>
+              <span class="px-2 py-0.5 rounded bg-sky-950/60 border border-sky-800/60 text-sky-300">HAProxy • Nginx • Docker</span>
             </div>
 
-            <h4 class="text-xl font-bold text-white group-hover:text-purple-300 transition-colors">
-              Database & Pipeline Observability Stack
+            <h4 class="text-xl font-bold text-white group-hover:text-sky-300 transition-colors">
+              High-Availability Sandbox & Load Balancing Lab
             </h4>
 
             <p class="text-slate-400 text-xs sm:text-sm leading-relaxed">
-              Automated telemetry stack monitoring host resource saturation, active database connections, disk write I/O, and slow batch transactions in real time.
+              Fault-tolerant containerized infrastructure demonstrating Layer 4/7 load balancing, reverse proxying, automated failover, and real-time node health monitoring.
             </p>
 
             <ul class="text-xs text-slate-300 space-y-1.5 list-disc list-inside">
-              <li>Custom PromQL alert rules for memory and disk spikes</li>
-              <li>Grafana dashboard visualizer for pipeline status</li>
-              <li>Sub-second incident alerting and threshold monitoring</li>
+              <li>HAProxy & Nginx traffic distribution & SSL termination</li>
+              <li>Simulated backend node outages & failover drills</li>
+              <li>Prometheus & Grafana live telemetry integration</li>
             </ul>
           </div>
 
           <div class="p-6 pt-0 border-t border-slate-800/60 mt-4 flex items-center justify-between">
-            <span class="text-xs font-mono text-purple-400 flex items-center gap-1.5">
-              <span>Telemetry Setup</span>
-              <i data-lucide="check-circle-2" class="w-3.5 h-3.5"></i>
-            </span>
-            <span class="text-[11px] font-mono text-slate-500">Production Tested</span>
+            <a href="https://github.com/xpmahdi/high-availability-sandbox" target="_blank" rel="noopener" class="text-xs font-mono text-sky-400 hover:text-sky-300 flex items-center gap-1.5">
+              <span>View Architecture</span>
+              <i data-lucide="external-link" class="w-3.5 h-3.5"></i>
+            </a>
+            <span class="text-[11px] font-mono text-slate-500">Public Repo</span>
+          </div>
+        </div>
+
+        <!-- Project 3: CineDex CI/CD & Containers -->
+        <div class="rounded-xl border border-slate-800 bg-[#121722] overflow-hidden flex flex-col justify-between hover:border-purple-500/40 transition-all group">
+          <div class="p-6 space-y-4">
+            <div class="flex items-center justify-between text-xs font-mono text-slate-400">
+              <span class="text-purple-400">Containers & CI/CD</span>
+              <span class="px-2 py-0.5 rounded bg-purple-950/60 border border-purple-800/60 text-purple-300">Docker • GitHub Actions</span>
+            </div>
+
+            <h4 class="text-xl font-bold text-white group-hover:text-purple-300 transition-colors">
+              CineDex — Multi-Stage Container & CI/CD Stack
+            </h4>
+
+            <p class="text-slate-400 text-xs sm:text-sm leading-relaxed">
+              Containerized FastAPI and PostgreSQL microservices stack engineered with optimized multi-stage builds, automated CI testing workflows, and persistent storage.
+            </p>
+
+            <ul class="text-xs text-slate-300 space-y-1.5 list-disc list-inside">
+              <li>Multi-stage Dockerfile slashing image size by 60%+</li>
+              <li>Automated GitHub Actions linting, unit tests & builds</li>
+              <li>Health probes (<code class="text-purple-300">/healthz</code>) & Prometheus exporters</li>
+            </ul>
+          </div>
+
+          <div class="p-6 pt-0 border-t border-slate-800/60 mt-4 flex items-center justify-between">
+            <a href="https://github.com/xpmahdi/CineDex" target="_blank" rel="noopener" class="text-xs font-mono text-purple-400 hover:text-purple-300 flex items-center gap-1.5">
+              <span>View Repository</span>
+              <i data-lucide="external-link" class="w-3.5 h-3.5"></i>
+            </a>
+            <span class="text-[11px] font-mono text-slate-500">Public Repo</span>
           </div>
         </div>
 
@@ -532,24 +533,27 @@
     </div>
   </section>
 
-  <!-- ================= Interactive Code Snippet / ETL Simulator ================= -->
+  <!-- ================= Interactive Infrastructure Manifests ================= -->
   <section id="interactive" class="py-20">
     <div class="max-w-4xl mx-auto px-4 sm:px-6">
       
       <div class="text-center mb-8 space-y-2">
-        <h2 class="text-xs uppercase tracking-widest text-sky-400 font-mono font-bold">Interactive Engineering Sandbox</h2>
-        <h3 class="text-2xl sm:text-3xl font-extrabold text-white tracking-tight">Inspect Sample Pipeline Logic</h3>
-        <p class="text-slate-400 text-xs sm:text-sm">Switch between the Python Ingestion Script and the PostgreSQL Schema DDL:</p>
+        <h2 class="text-xs uppercase tracking-widest text-sky-400 font-mono font-bold">Interactive DevOps Sandbox</h2>
+        <h3 class="text-2xl sm:text-3xl font-extrabold text-white tracking-tight">Inspect Production Configs & Pipelines</h3>
+        <p class="text-slate-400 text-xs sm:text-sm">Switch between a Multi-Stage Dockerfile, Kubernetes StatefulSet, and GitHub Actions CI Workflow:</p>
       </div>
 
       <!-- Tab Buttons -->
       <div class="flex items-center justify-between bg-[#121824] border border-slate-800 px-4 py-2 rounded-t-xl">
-        <div class="flex gap-2">
-          <button id="btn-py" onclick="showSnippet('python')" class="px-3 py-1 rounded text-xs font-mono bg-sky-500 text-slate-950 font-bold transition-all">
-            pipeline.py
+        <div class="flex flex-wrap gap-2">
+          <button id="btn-docker" onclick="showSnippet('docker')" class="px-3 py-1 rounded text-xs font-mono bg-sky-500 text-slate-950 font-bold transition-all">
+            Dockerfile
           </button>
-          <button id="btn-sql" onclick="showSnippet('sql')" class="px-3 py-1 rounded text-xs font-mono bg-slate-800 text-slate-300 hover:text-white transition-all">
-            schema.sql
+          <button id="btn-k8s" onclick="showSnippet('k8s')" class="px-3 py-1 rounded text-xs font-mono bg-slate-800 text-slate-300 hover:text-white transition-all">
+            statefulset.yaml
+          </button>
+          <button id="btn-ci" onclick="showSnippet('ci')" class="px-3 py-1 rounded text-xs font-mono bg-slate-800 text-slate-300 hover:text-white transition-all">
+            deploy.yml
           </button>
         </div>
         <button onclick="copySnippetCode()" class="text-xs font-mono text-slate-400 hover:text-white flex items-center gap-1">
@@ -560,34 +564,23 @@
 
       <!-- Code Container -->
       <div class="p-5 bg-[#0a0e17] border-x border-b border-slate-800 rounded-b-xl font-mono text-xs text-slate-300 overflow-x-auto leading-relaxed shadow-xl">
-        <pre id="snippet-display"><code># pipeline.py - Sample Python Data Ingestion Worker
-import psycopg2
-from psycopg2.extras import execute_batch
-import requests
+        <pre id="snippet-display"><code># Dockerfile - Hardened Multi-Stage Production Build (-60% Image Size)
+FROM python:3.12-slim AS builder
+WORKDIR /build
+COPY requirements.txt .
+RUN pip wheel --no-cache-dir --no-deps --wheel-dir /build/wheels -r requirements.txt
 
-def ingest_media_records(api_endpoint: str, db_config: dict):
-    """Fetches raw JSON, normalizes attributes, and batch UPSERTs into PostgreSQL."""
-    response = requests.get(api_endpoint, timeout=10)
-    response.raise_for_status()
-    raw_records = response.json()
+FROM python:3.12-slim AS runtime
+RUN useradd --create-home --shell /bin/bash appuser
+WORKDIR /app
+COPY --from=builder /build/wheels /wheels
+RUN pip install --no-cache /wheels/* && rm -rf /wheels
+COPY --chown=appuser:appuser . .
 
-    clean_data = [
-        (item['id'], item['title'].strip(), item.get('release_year'), item.get('rating', 0.0))
-        for item in raw_records if 'id' in item and 'title' in item
-    ]
-
-    upsert_query = """
-    INSERT INTO media_catalog (id, title, release_year, rating)
-    VALUES (%s, %s, %s, %s)
-    ON CONFLICT (id) DO UPDATE SET
-        rating = EXCLUDED.rating,
-        updated_at = NOW();
-    """
-
-    with psycopg2.connect(**db_config) as conn:
-        with conn.cursor() as cur:
-            execute_batch(cur, upsert_query, clean_data, page_size=200)
-    print(f"✅ Ingestion complete: {len(clean_data)} rows committed.")</code></pre>
+USER appuser
+EXPOSE 8000
+HEALTHCHECK --interval=30s --timeout=3s CMD curl -f http://localhost:8000/healthz || exit 1
+CMD ["uvicorn", "app.main:app", "--host", "0.0.0.0", "--port", "8000"]</code></pre>
       </div>
 
     </div>
@@ -601,9 +594,9 @@ def ingest_media_records(api_endpoint: str, db_config: dict):
         <i data-lucide="send" class="w-6 h-6"></i>
       </div>
 
-      <h3 class="text-3xl font-extrabold text-white tracking-tight">Let's Connect & Build Resilient Data Systems</h3>
+      <h3 class="text-3xl font-extrabold text-white tracking-tight">Let's Connect & Build Resilient Infrastructure</h3>
       <p class="text-slate-400 text-sm max-w-xl mx-auto leading-relaxed">
-        Currently seeking junior data engineering opportunities, collaborative data infrastructure projects, or open-source initiatives.
+        Open to DevOps Engineer roles, platform infrastructure projects, and cloud-native engineering collaborations.
       </p>
 
       <div class="flex flex-wrap items-center justify-center gap-4 pt-4">
@@ -635,7 +628,7 @@ def ingest_media_records(api_endpoint: str, db_config: dict):
 
   <!-- Minimal Copyright Bar -->
   <footer class="py-6 border-t border-slate-900 bg-[#090d14] text-center text-xs font-mono text-slate-500">
-    <p>© 2026 Mahdi Hosseini (xpmahdi) • Crafted for resilience & performance</p>
+    <p>© 2026 Mahdi Hosseini (xpmahdi) • Built for high availability & automation</p>
   </footer>
 
   <!-- ================= JavaScript Interactions ================= -->
@@ -694,79 +687,121 @@ def ingest_media_records(api_endpoint: str, db_config: dict):
       });
     }
 
-    // Code Snippet Switcher
-    const pythonSnippet = `# pipeline.py - Sample Python Data Ingestion Worker
-import psycopg2
-from psycopg2.extras import execute_batch
-import requests
+    // DevOps Config Switcher
+    const dockerSnippet = `# Dockerfile - Hardened Multi-Stage Production Build (-60% Image Size)
+FROM python:3.12-slim AS builder
+WORKDIR /build
+COPY requirements.txt .
+RUN pip wheel --no-cache-dir --no-deps --wheel-dir /build/wheels -r requirements.txt
 
-def ingest_media_records(api_endpoint: str, db_config: dict):
-    """Fetches raw JSON, normalizes attributes, and batch UPSERTs into PostgreSQL."""
-    response = requests.get(api_endpoint, timeout=10)
-    response.raise_for_status()
-    raw_records = response.json()
+FROM python:3.12-slim AS runtime
+RUN useradd --create-home --shell /bin/bash appuser
+WORKDIR /app
+COPY --from=builder /build/wheels /wheels
+RUN pip install --no-cache /wheels/* && rm -rf /wheels
+COPY --chown=appuser:appuser . .
 
-    clean_data = [
-        (item['id'], item['title'].strip(), item.get('release_year'), item.get('rating', 0.0))
-        for item in raw_records if 'id' in item and 'title' in item
-    ]
+USER appuser
+EXPOSE 8000
+HEALTHCHECK --interval=30s --timeout=3s CMD curl -f http://localhost:8000/healthz || exit 1
+CMD ["uvicorn", "app.main:app", "--host", "0.0.0.0", "--port", "8000"]`;
 
-    upsert_query = """
-    INSERT INTO media_catalog (id, title, release_year, rating)
-    VALUES (%s, %s, %s, %s)
-    ON CONFLICT (id) DO UPDATE SET
-        rating = EXCLUDED.rating,
-        updated_at = NOW();
-    """
+    const k8sSnippet = `# statefulset.yaml - Persistent PostgreSQL Deployment on k3s
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: postgres-db
+  namespace: production
+spec:
+  serviceName: "postgres"
+  replicas: 1
+  selector:
+    matchLabels:
+      app: postgres
+  template:
+    metadata:
+      labels:
+        app: postgres
+    spec:
+      containers:
+        - name: postgres
+          image: postgres:16-alpine
+          ports:
+            - containerPort: 5432
+          readinessProbe:
+            exec:
+              command: ["pg_isready", "-U", "postgres"]
+            initialDelaySeconds: 5
+            periodSeconds: 10
+          volumeMounts:
+            - name: pgdata
+              mountPath: /var/lib/postgresql/data
+  volumeClaimTemplates:
+    - metadata:
+        name: pgdata
+      spec:
+        accessModes: [ "ReadWriteOnce" ]
+        resources:
+          requests:
+            storage: 10Gi`;
 
-    with psycopg2.connect(**db_config) as conn:
-        with conn.cursor() as cur:
-            execute_batch(cur, upsert_query, clean_data, page_size=200)
-    print(f"✅ Ingestion complete: {len(clean_data)} rows committed.")`;
+    const ciSnippet = `# .github/workflows/deploy.yml - Automated CI/CD Verification Pipeline
+name: Build, Test & Containerize
 
-    const sqlSnippet = `-- schema.sql - Normalized 3NF Schema & Performance Indexes
-CREATE TABLE IF NOT EXISTS media_catalog (
-    id VARCHAR(64) PRIMARY KEY,
-    title VARCHAR(255) NOT NULL,
-    release_year INT CHECK (release_year >= 1888),
-    rating NUMERIC(3, 2) DEFAULT 0.0,
-    created_at TIMESTAMP WITH TIME ZONE DEFAULT NOW(),
-    updated_at TIMESTAMP WITH TIME ZONE DEFAULT NOW()
-);
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
 
--- Fast B-Tree Lookup on Release Year and Title
-CREATE INDEX IF NOT EXISTS idx_media_release_rating 
-ON media_catalog (release_year DESC, rating DESC);
+jobs:
+  ci-pipeline:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
 
--- View for High-Ranked Media Queries
-CREATE OR REPLACE VIEW top_rated_media AS
-SELECT id, title, release_year, rating
-FROM media_catalog
-WHERE rating >= 8.0
-ORDER BY rating DESC;`;
+      - name: Run Linter & Unit Tests
+        run: |
+          pip install ruff pytest
+          ruff check .
+          pytest -v
 
-    let currentSnippet = 'python';
+      - name: Build & Verify Multi-Stage Docker Image
+        run: |
+          docker build -t xpmahdi/cinedex:\${{ github.sha }} .
+          docker run --rm xpmahdi/cinedex:\${{ github.sha }} python -c "import app; print('Build OK')"`;
+
+    let currentSnippet = 'docker';
 
     function showSnippet(type) {
       const display = document.getElementById('snippet-display');
-      const btnPy = document.getElementById('btn-py');
-      const btnSql = document.getElementById('btn-sql');
+      const btnDocker = document.getElementById('btn-docker');
+      const btnK8s = document.getElementById('btn-k8s');
+      const btnCi = document.getElementById('btn-ci');
 
-      if (type === 'python') {
-        currentSnippet = 'python';
-        display.innerHTML = `<code>${escapeHtml(pythonSnippet)}</code>`;
-        btnPy.className = 'px-3 py-1 rounded text-xs font-mono bg-sky-500 text-slate-950 font-bold transition-all';
-        btnSql.className = 'px-3 py-1 rounded text-xs font-mono bg-slate-800 text-slate-300 hover:text-white transition-all';
+      const activeClass = 'px-3 py-1 rounded text-xs font-mono bg-sky-500 text-slate-950 font-bold transition-all';
+      const inactiveClass = 'px-3 py-1 rounded text-xs font-mono bg-slate-800 text-slate-300 hover:text-white transition-all';
+
+      btnDocker.className = inactiveClass;
+      btnK8s.className = inactiveClass;
+      btnCi.className = inactiveClass;
+
+      currentSnippet = type;
+      if (type === 'docker') {
+        display.innerHTML = `<code>${escapeHtml(dockerSnippet)}</code>`;
+        btnDocker.className = activeClass;
+      } else if (type === 'k8s') {
+        display.innerHTML = `<code>${escapeHtml(k8sSnippet)}</code>`;
+        btnK8s.className = activeClass;
       } else {
-        currentSnippet = 'sql';
-        display.innerHTML = `<code>${escapeHtml(sqlSnippet)}</code>`;
-        btnSql.className = 'px-3 py-1 rounded text-xs font-mono bg-sky-500 text-slate-950 font-bold transition-all';
-        btnPy.className = 'px-3 py-1 rounded text-xs font-mono bg-slate-800 text-slate-300 hover:text-white transition-all';
+        display.innerHTML = `<code>${escapeHtml(ciSnippet)}</code>`;
+        btnCi.className = activeClass;
       }
     }
 
     function copySnippetCode() {
-      const codeToCopy = currentSnippet === 'python' ? pythonSnippet : sqlSnippet;
+      const map = { docker: dockerSnippet, k8s: k8sSnippet, ci: ciSnippet };
+      const codeToCopy = map[currentSnippet];
       const dummy = document.createElement('textarea');
       document.body.appendChild(dummy);
       dummy.value = codeToCopy;
